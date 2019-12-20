@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <title>Emoji support | Aida Issayeva</title>
+  <meta charset='utf-8'>
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+  <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' /><meta name = 'keywords' content = 'Aida Issayeva'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = 'Emoji Support' />
+<meta property = 'og:description' content = 'Emoji can be enabled in a Hugo project in a number of ways.'>
+<meta property = 'og:url' content = 'https://aidaissayeva.github.io/post/emoji-support/' />
+<meta property = 'og:image' content = 'https://aidaissayeva.github.io/images/artist.jpg'/>
+<link rel='apple-touch-icon' sizes='180x180' href='https://aidaissayeva.github.io/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://aidaissayeva.github.io/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://aidaissayeva.github.io/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://aidaissayeva.github.io/images/icons/site.webmanifest'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='theme-color' content='#ffffff'>
+
+  <link rel='canonical' href='https://aidaissayeva.github.io/post/emoji-support/'>
+  <link rel = 'stylesheet' href = 'https://aidaissayeva.github.io/css/main.0f3d02bf5ec797ac18453b2da82addaca9d9271eec38dd25d60668f43b474d954a0571c44d8ba294abd5db648c63eb202acfa820849ef183d08fae1c5247f329.css' integrity = 'sha512-Dz0Cv17Hl6wYRTstqCrdrKnZJx7sON0l1gZo9DtHTZVKBXHETYuilKvV22SMY&#43;sgKs&#43;oIISe8YPQj64cUkfzKQ=='>
+</head>
+
+  <body>
+    <div class = 'nav-drop'>
+  <div class = 'nav-body'>
+    
+      <a href = 'https://aidaissayeva.github.io/about/' class = 'nav_item'>About</a>
+    
+      <a href = 'https://aidaissayeva.github.io/' class = 'nav_item'>Blog</a>
+    
+      <a href = 'https://aidaissayeva.github.io/categories' class = 'nav_item'>Category</a>
+    
+      <a href = 'https://aidaissayeva.github.io/tags' class = 'nav_item'>Tag</a>
+    
+    <div class = 'nav-close'></div>
+    <div class = 'color_mode'>
+<label for = 'mode'>Toggle Dark Mode</label>
+<input type = 'checkbox' class = 'color_choice' id = 'mode'>
+</div>
+
+  </div>
+</div>
+<header class = 'nav' >
+  <nav class = 'nav-menu'>
+    <a href='https://aidaissayeva.github.io/' class = 'nav-brand nav_item'>Aida Issayeva</a>
+    <div class = 'nav_bar-wrap'>
+      <div class = 'nav_bar'></div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+      
+  <div class = 'wrap mt post'>
+    <div><p class = 'post_date pale'>05. March 2019</p>
+      <h1 class = 'post_title'>Emoji Support</h1>
+      <div class = 'post_body'>
+        <div class = 'post_inner'>
+        
+          <img src = 'https://aidaissayeva.github.io/images/artist.jpg' alt = 'artist.jpg' class = 'post_thumbnail'>
+        
+          <p>Emoji can be enabled in a Hugo project in a number of ways.</p>
+<p>The <code>[emojify](https://gohugo.io/functions/emojify/)</code> function can be called directly in templates or <a href="https://gohugo.io/templates/shortcode-templates/#inline-shortcodes">Inline Shortcodes</a>.</p>
+<p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site’s <a href="https://gohugo.io/getting-started/configuration/">configuration</a> and then you can type emoji shorthand codes directly in content files; e.g.</p>
+<!-- raw HTML omitted -->
+<p>The <a href="http://www.emoji-cheat-sheet.com/">Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
+<hr>
+<p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
+<h3 id="inline-css">Inline CSS</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">style</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">.</span><span class="nc">emojify</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="p">:</span> <span class="n">Apple</span> <span class="n">Color</span> <span class="n">Emoji</span><span class="p">,</span><span class="n">Segoe</span> <span class="n">UI</span> <span class="n">Emoji</span><span class="p">,</span><span class="n">NotoColorEmoji</span><span class="p">,</span><span class="n">Segoe</span> <span class="n">UI</span> <span class="n">Symbol</span><span class="p">,</span><span class="n">Android</span> <span class="n">Emoji</span><span class="p">,</span><span class="n">EmojiSymbols</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+    <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">@</span><span class="k">media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="p">:</span><span class="nd">650px</span><span class="o">)</span> <span class="p">{</span>
+    <span class="p">.</span><span class="nc">nowrap</span> <span class="p">{</span>
+      <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+      <span class="k">margin</span><span class="p">:</span> <span class="mi">25</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="javascript">Javascript</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">createEl</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">elem</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nb">document</span><span class="p">)</span><span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">elem</span> <span class="o">!=</span> <span class="kc">false</span> <span class="o">?</span> <span class="nx">elem</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">navBar</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">(</span><span class="sb">`</span><span class="sb">.</span><span class="si">${</span><span class="nx">bar</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">nav</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">(</span><span class="s1">&#39;.nav-body&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">open</span> <span class="o">=</span> <span class="s1">&#39;nav-open&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">exit</span> <span class="o">=</span> <span class="s1">&#39;nav-exit&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">drop</span> <span class="o">=</span> <span class="s1">&#39;nav-drop&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">pop</span> <span class="o">=</span> <span class="s1">&#39;nav-pop&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">navDrop</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">(</span><span class="sb">`</span><span class="sb">.</span><span class="si">${</span><span class="nx">drop</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">hidden</span> <span class="o">=</span> <span class="s1">&#39;hidden&#39;</span><span class="p">;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="swift">Swift</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nv">residence</span><span class="p">:</span> <span class="n">Residence</span><span class="p">?</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Residence</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nv">rooms</span> <span class="p">=</span> <span class="p">[</span><span class="n">Room</span><span class="p">]</span><span class="p">(</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="nv">numberOfRooms</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">rooms</span><span class="p">.</span><span class="bp">count</span>
+  <span class="p">}</span>
+
+  
+  <span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Room</span> <span class="p">{</span>
+    <span class="kr">get</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="kr">set</span> <span class="p">{</span>
+      <span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">newValue</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="kd">func</span> <span class="nf">printNumberOfRooms</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">The number of rooms is </span><span class="si">\(</span><span class="n">numberOfRooms</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nv">address</span><span class="p">:</span> <span class="n">Address</span><span class="p">?</span>
+
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+        <div class ='post_extra mb-2'>
+          <div class = 'copy'></div>
+
+        </div>
+        <div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href = 'https://aidaissayeva.github.io/' class = 'post_nav'><span class = 'post_next'>The Latest</span>T</a>
+
+    </main>
+    <footer class = 'footer wrap pale'>
+  <p>&copy;&nbsp;<span class = 'year'></span>&nbsp;Aida Issayeva</p>
+  <p>The wisest mind has something yet to learn. —George Santayana</p>
+</footer>
+
+<script src = 'https://aidaissayeva.github.io/js/index.js'></script>
+
+  </body>
+</html>

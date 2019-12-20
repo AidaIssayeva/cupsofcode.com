@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <title>Getting started with hugo | Aida Issayeva</title>
+  <meta charset='utf-8'>
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+  <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' /><meta name = 'keywords' content = 'Aida Issayeva'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = 'Getting Started with Hugo' />
+<meta property = 'og:description' content = 'Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will be …'>
+<meta property = 'og:url' content = 'https://aidaissayeva.github.io/post/hugoisforlovers/' />
+<meta property = 'og:image' content = 'https://aidaissayeva.github.io/images/stuck.jpg'/>
+<link rel='apple-touch-icon' sizes='180x180' href='https://aidaissayeva.github.io/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://aidaissayeva.github.io/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://aidaissayeva.github.io/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://aidaissayeva.github.io/images/icons/site.webmanifest'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='theme-color' content='#ffffff'>
+
+  <link rel='canonical' href='https://aidaissayeva.github.io/post/hugoisforlovers/'>
+  <link rel = 'stylesheet' href = 'https://aidaissayeva.github.io/css/main.0f3d02bf5ec797ac18453b2da82addaca9d9271eec38dd25d60668f43b474d954a0571c44d8ba294abd5db648c63eb202acfa820849ef183d08fae1c5247f329.css' integrity = 'sha512-Dz0Cv17Hl6wYRTstqCrdrKnZJx7sON0l1gZo9DtHTZVKBXHETYuilKvV22SMY&#43;sgKs&#43;oIISe8YPQj64cUkfzKQ=='>
+</head>
+
+  <body>
+    <div class = 'nav-drop'>
+  <div class = 'nav-body'>
+    
+      <a href = 'https://aidaissayeva.github.io/about/' class = 'nav_item'>About</a>
+    
+      <a href = 'https://aidaissayeva.github.io/' class = 'nav_item'>Blog</a>
+    
+      <a href = 'https://aidaissayeva.github.io/categories' class = 'nav_item'>Category</a>
+    
+      <a href = 'https://aidaissayeva.github.io/tags' class = 'nav_item'>Tag</a>
+    
+    <div class = 'nav-close'></div>
+    <div class = 'color_mode'>
+<label for = 'mode'>Toggle Dark Mode</label>
+<input type = 'checkbox' class = 'color_choice' id = 'mode'>
+</div>
+
+  </div>
+</div>
+<header class = 'nav' >
+  <nav class = 'nav-menu'>
+    <a href='https://aidaissayeva.github.io/' class = 'nav-brand nav_item'>Aida Issayeva</a>
+    <div class = 'nav_bar-wrap'>
+      <div class = 'nav_bar'></div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+      
+  <div class = 'wrap mt post'>
+    <div><p class = 'post_date pale'>02. April 2014</p>
+      <h1 class = 'post_title'>Getting Started with Hugo</h1>
+      <div class = 'post_body'>
+        <div class = 'post_inner'>
+        
+          <img src = 'https://aidaissayeva.github.io/images/stuck.jpg' alt = 'stuck.jpg' class = 'post_thumbnail'>
+        
+          <h2 id="step-1-install-hugo">Step 1. Install Hugo</h2>
+<p>Go to <a href="https://github.com/spf13/hugo/releases">Hugo releases</a> and download the
+appropriate version for your OS and architecture.</p>
+<p>Save it somewhere specific as we will be using it in the next step.</p>
+<p>More complete instructions are available at <a href="https://gohugo.io/getting-started/installing/">Install Hugo</a></p>
+<h2 id="step-2-build-the-docs">Step 2. Build the Docs</h2>
+<p>Hugo has its own example site which happens to also be the documentation site
+you are reading right now.</p>
+<p>Follow the following steps:</p>
+<ol>
+<li>Clone the <a href="http://github.com/spf13/hugo">Hugo repository</a></li>
+<li>Go into the repo</li>
+<li>Run hugo in server mode and build the docs</li>
+<li>Open your browser to http://localhost:1313</li>
+</ol>
+<p>Corresponding pseudo commands:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">    git clone https://github.com/spf13/hugo
+    <span class="nb">cd</span> hugo
+    /path/to/where/you/installed/hugo server --source<span class="o">=</span>./docs
+    &gt; <span class="m">29</span> pages created
+    &gt; <span class="m">0</span> tags index created
+    &gt; in <span class="m">27</span> ms
+    &gt; Web Server is available at http://localhost:1313
+    &gt; Press ctrl+c to stop
+</code></pre></td></tr></table>
+</div>
+</div><p>Once you've gotten here, follow along the rest of this page on your local build.</p>
+<h2 id="step-3-change-the-docs-site">Step 3. Change the docs site</h2>
+<p>Stop the Hugo process by hitting Ctrl+C.</p>
+<p>Now we are going to run hugo again, but this time with hugo in watch mode.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">    /path/to/hugo/from/step/1/hugo server --source<span class="o">=</span>./docs --watch
+    &gt; <span class="m">29</span> pages created
+    &gt; <span class="m">0</span> tags index created
+    &gt; in <span class="m">27</span> ms
+    &gt; Web Server is available at http://localhost:1313
+    &gt; Watching <span class="k">for</span> changes in /Users/spf13/Code/hugo/docs/content
+    &gt; Press ctrl+c to stop
+</code></pre></td></tr></table>
+</div>
+</div><p>Open your <a href="http://vim.spf13.com">favorite editor</a> and change one of the source
+content pages. How about changing this very file to <em>fix the typo</em>. How about changing this very file to <em>fix the typo</em>.</p>
+<p>Content files are found in <code>docs/content/</code>. Unless otherwise specified, files
+are located at the same relative location as the url, in our case
+<code>docs/content/overview/quickstart.md</code>.</p>
+<p>Change and save this file.. Notice what happened in your terminal.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">    &gt; Change detected, rebuilding site
+
+    &gt; <span class="m">29</span> pages created
+    &gt; <span class="m">0</span> tags index created
+    &gt; in <span class="m">26</span> ms
+</code></pre></td></tr></table>
+</div>
+</div><p>Refresh the browser and observe that the typo is now fixed.</p>
+<p>Notice how quick that was. Try to refresh the site before it's finished building. I double dare you.
+Having nearly instant feedback enables you to have your creativity flow without waiting for long builds.</p>
+<h2 id="step-4-have-fun">Step 4. Have fun</h2>
+<p>The best way to learn something is to play with it.</p>
+
+        </div>
+        <div class ='post_extra mb-2'>
+          <div class = 'copy'></div>
+
+        </div>
+        <div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href = 'https://aidaissayeva.github.io/' class = 'post_nav'><span class = 'post_next'>The Latest</span>T</a>
+
+    </main>
+    <footer class = 'footer wrap pale'>
+  <p>&copy;&nbsp;<span class = 'year'></span>&nbsp;Aida Issayeva</p>
+  <p>The wisest mind has something yet to learn. —George Santayana</p>
+</footer>
+
+<script src = 'https://aidaissayeva.github.io/js/index.js'></script>
+
+  </body>
+</html>
