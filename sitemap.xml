@@ -8,6 +8,26 @@
   </url>
   
   <url>
+    <loc>https://aidaissayeva.github.io/tags/android/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidaissayeva.github.io/post/bad-good-extensions/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidaissayeva.github.io/post/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aidaissayeva.github.io/tags/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://aidaissayeva.github.io/</loc>
     <lastmod>2019-08-25T00:52:59+03:00</lastmod>
   </url>
@@ -20,21 +40,6 @@
   <url>
     <loc>https://aidaissayeva.github.io/post/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidaissayeva.github.io/post/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidaissayeva.github.io/tags/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidaissayeva.github.io/post/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -90,11 +95,6 @@
   <url>
     <loc>https://aidaissayeva.github.io/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aidaissayeva.github.io/post/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>
