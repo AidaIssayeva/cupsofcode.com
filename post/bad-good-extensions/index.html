@@ -62,11 +62,12 @@
           <img src = 'https://aidaissayeva.github.io/images/speakers.jpg' alt = 'speakers.jpg' class = 'post_thumbnail'>
         
           <p>Code highlight example:
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">fun</span> <span class="p">&lt;</span><span class="nx">T</span><span class="p">&gt;</span> <span class="nx">Context</span><span class="p">.</span><span class="nf">getComponent</span><span class="p">(</span><span class="nx">clazz</span><span class="p">:</span> <span class="nx">Class</span><span class="p">&lt;</span><span class="nx">T</span><span class="p">&gt;</span><span class="p">)</span><span class="p">:</span> <span class="nx">T</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">this</span><span class="p">.</span><span class="nx">applicationContext</span><span class="p">.</span><span class="nf">getSystemService</span><span class="p">(</span><span class="nx">clazz</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="nx">as</span> <span class="nx">T</span>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> &lt;T&gt; <span class="nf">Context</span><span class="p">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">clazz</span><span class="p">:</span> <span class="n">Class</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span><span class="p">)</span><span class="p">:</span> <span class="n">T</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">applicationContext</span><span class="p">.</span><span class="n">getSystemService</span><span class="p">(</span><span class="n">clazz</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="k">as</span> <span class="n">T</span>
 <span class="p">}</span></code></pre></div></p>
 <p>Gist:</p>
-<p>{{ &lt; gist AidaIssayeva f102b542efd6715a3f02784c09fea765 &gt;}}</p>
+<script type="application/javascript" src="https://gist.github.com/AidaIssayeva/f102b542efd6715a3f02784c09fea765.js"></script>
+
 
         </div>
         <div class ='post_extra mb-2'>
