@@ -17,7 +17,9 @@
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://aidaissayeva.github.io/post/bad-good-extensions/</guid>
-      <description>Code highlight example: fun &amp;lt;T&amp;gt; Context.getComponent(clazz: Class&amp;lt;T&amp;gt;): T { return this.applicationContext.getSystemService(clazz.name) as T }</description>
+      <description>Code highlight example: fun &amp;lt;T&amp;gt; Context.getComponent(clazz: Class&amp;lt;T&amp;gt;): T { return this.applicationContext.getSystemService(clazz.name) as T }
+Gist:
+{{ &amp;lt; gist AidaIssayeva f102b542efd6715a3f02784c09fea765 &amp;gt;}}</description>
     </item>
     
   </channel>

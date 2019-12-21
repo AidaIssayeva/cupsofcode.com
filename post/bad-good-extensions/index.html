@@ -65,6 +65,8 @@
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">fun</span> <span class="p">&lt;</span><span class="nx">T</span><span class="p">&gt;</span> <span class="nx">Context</span><span class="p">.</span><span class="nf">getComponent</span><span class="p">(</span><span class="nx">clazz</span><span class="p">:</span> <span class="nx">Class</span><span class="p">&lt;</span><span class="nx">T</span><span class="p">&gt;</span><span class="p">)</span><span class="p">:</span> <span class="nx">T</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">this</span><span class="p">.</span><span class="nx">applicationContext</span><span class="p">.</span><span class="nf">getSystemService</span><span class="p">(</span><span class="nx">clazz</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="nx">as</span> <span class="nx">T</span>
 <span class="p">}</span></code></pre></div></p>
+<p>Gist:</p>
+<p>{{ &lt; gist AidaIssayeva f102b542efd6715a3f02784c09fea765 &gt;}}</p>
 
         </div>
         <div class ='post_extra mb-2'>
