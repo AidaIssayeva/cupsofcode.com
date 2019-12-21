@@ -9,7 +9,8 @@
 <meta property = 'og:locale' content = 'en_US' />
 <meta property = 'og:type' content = 'article' />
 <meta property = 'og:title' content = 'How not to abuse extensions in Kotlin' />
-<meta property = 'og:description' content = 'Code highlight example: fun &lt;T&gt; Context.getComponent(clazz: Class&lt;T&gt;): T { return this.applicationContext.getSystemService(clazz.name) as …'>
+<meta property = 'og:description' content = 'Kotlin extensions are very practical. They help to reduce the boilerplate of the code.
+Code highlight example: fun &lt;T&gt; …'>
 <meta property = 'og:url' content = 'https://aidaissayeva.github.io/post/bad-good-extensions/' />
 <meta property = 'og:image' content = 'https://aidaissayeva.github.io/images/speakers.jpg'/>
 <link rel='apple-touch-icon' sizes='180x180' href='https://aidaissayeva.github.io/images/icons/apple-touch-icon.png'>
@@ -61,7 +62,8 @@
         
           <img src = 'https://aidaissayeva.github.io/images/speakers.jpg' alt = 'speakers.jpg' class = 'post_thumbnail'>
         
-          <p>Code highlight example:
+          <p>Kotlin extensions are very practical. They help to reduce the boilerplate of the code.</p>
+<p>Code highlight example:
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> &lt;T&gt; <span class="nf">Context</span><span class="p">.</span><span class="n">getComponent</span><span class="p">(</span><span class="n">clazz</span><span class="p">:</span> <span class="n">Class</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span><span class="p">)</span><span class="p">:</span> <span class="n">T</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">applicationContext</span><span class="p">.</span><span class="n">getSystemService</span><span class="p">(</span><span class="n">clazz</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="k">as</span> <span class="n">T</span>
 <span class="p">}</span></code></pre></div></p>

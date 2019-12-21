@@ -17,7 +17,8 @@
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://aidaissayeva.github.io/post/bad-good-extensions/</guid>
-      <description>Code highlight example: fun &amp;lt;T&amp;gt; Context.getComponent(clazz: Class&amp;lt;T&amp;gt;): T { return this.applicationContext.getSystemService(clazz.name) as T }
+      <description>Kotlin extensions are very practical. They help to reduce the boilerplate of the code.
+Code highlight example: fun &amp;lt;T&amp;gt; Context.getComponent(clazz: Class&amp;lt;T&amp;gt;): T { return this.applicationContext.getSystemService(clazz.name) as T }
 Gist:
  Tweet: I&amp;#39;m in love with `SpannableStringBuilder` extensions. Did not know it&amp;#39;s been out since 2017! #android #androidDev pic.twitter.com/sgGskizj4j
 &amp;mdash; Aida (@Aida_Isay) September 14, 2019  Practice, practice, practice
