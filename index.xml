@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Tech talks</title>
+      <link>https://aidaissayeva.github.io/talks/</link>
+      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://aidaissayeva.github.io/talks/</guid>
+      <description>The tech conferences I spoke on:
+2019  &amp;ldquo;Android Summit&amp;rdquo; &amp;ldquo;GDG DevFest&amp;rdquo; &amp;ldquo;Droidcon SF&amp;rdquo;  </description>
+    </item>
+    
+    <item>
       <title>How not to abuse extensions in Kotlin</title>
       <link>https://aidaissayeva.github.io/post/bad-good-extensions/</link>
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
@@ -23,6 +33,15 @@ Gist:
  Tweet: I&amp;#39;m in love with `SpannableStringBuilder` extensions. Did not know it&amp;#39;s been out since 2017! #android #androidDev pic.twitter.com/sgGskizj4j
 &amp;mdash; Aida (@Aida_Isay) September 14, 2019  Practice, practice, practice
 The End!</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://aidaissayeva.github.io/about/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://aidaissayeva.github.io/about/</guid>
+      <description>Android developer with a full-time job at a company that pays me salary. Sometimes I come out of the comfort zone and give tech talks, and when I&#39;m not lazy I write blog posts on this website.</description>
     </item>
     
     <item>
