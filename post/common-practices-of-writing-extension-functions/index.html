@@ -77,8 +77,75 @@
 <p>Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions give an ability to make a new functionality of an extending class without making changes to it, and defined outside of the class. They are very beneficial when you want to tweak an api, that can't be modified.</p>
 <p>Let's go over some sad examples of making extensions:</p>
 <h3 id="extending-android-and-java-common-types-to-meet-business-logic">Extending android and java common types to meet business logic</h3>
-<p>A lot of times when you</p>
-<h3 id="modifying-members-of-a-extending-class">Modifying members of a extending class</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">CharSequence</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Animal</span><span class="p">(</span>
+        <span class="n">id</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="n">name</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="n">logo</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">,</span>
+        <span class="n">isDomestic</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
+        <span class="n">inRedList</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
+        <span class="n">description</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Do business to business:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">WildAnimal</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Animal</span><span class="p">(</span>
+        <span class="n">id</span> <span class="p">=</span> <span class="n">id</span><span class="p">,</span>
+        <span class="n">name</span> <span class="p">=</span> <span class="n">name</span><span class="p">,</span>
+        <span class="n">logo</span> <span class="p">=</span> <span class="n">logo</span><span class="p">,</span>
+        <span class="n">isDomestic</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
+        <span class="n">description</span> <span class="p">=</span> <span class="n">shortDescription</span><span class="p">,</span>
+        <span class="n">inRedList</span> <span class="p">=</span> <span class="n">inRedList</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Or common to common:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="n">@kotlin</span><span class="p">.</span><span class="k">internal</span><span class="p">.</span><span class="n">InlineOnly</span>
+<span class="k">public</span> <span class="k">inline</span> <span class="k">fun</span> <span class="nf">String</span><span class="p">.</span><span class="n">toPattern</span><span class="p">(</span><span class="n">flags</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span><span class="p">:</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="modifying-members-of-an-extending-class">Modifying members of an extending class</h3>
 <p>Extension functions are meant to extend a class with new functionality, not to modify or insert members to it.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
