@@ -122,7 +122,7 @@ In the example above, extension function <code>showWhiteLoadingIndicator()</code
 
 <span class="p">}</span></code></pre></div>
 <p>Although this might work and some developers do practice it, making an extension function out of it seems as an overhead to me. No one cancelled out regular member functions, that can help you achieve the same functionality in the end.</p>
-<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"> <span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 
      <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
 
@@ -148,7 +148,7 @@ When making an extension function, be careful with naming. If it matches a membe
 <span class="p">}</span></code></pre></div>
 <code>setBackgroundColor(@ColorInt int color)</code> is a member function of <code>View</code> class in android, and it accepts argument of type <code>int</code>.
 Now if we look at the below extension function, the name and argument type match the member function.</p>
-<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"> <span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">colorResId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">colorResId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
      <span class="n">setBackgroundColor</span><span class="p">(</span>
          <span class="n">ContextCompat</span><span class="p">.</span><span class="n">getColor</span><span class="p">(</span>
              <span class="n">context</span><span class="p">,</span> <span class="n">colorResId</span>
@@ -199,7 +199,7 @@ Instead, the easiest solution will be to rename the extension function:</p>
         <span class="p">.</span><span class="n">into</span><span class="p">(</span><span class="n">imageView</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div>
 At first glance, compiler doesn’t give any errors, the code runs and the same functionality is preserved. But if we look at the docs, we can see that <code>ImageView</code> class has already member of type <code>Context</code>, therefore we can retrieve context from it directly by extending <code>Imageview</code>:
-<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt">  <span class="k">fun</span> <span class="nf">ImageView</span><span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">ImageView</span><span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">Glide</span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">context</span><span class="p">)</span>
         <span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="p">)</span>
         <span class="p">.</span><span class="n">listener</span><span class="p">(</span><span class="k">object</span> <span class="err">:</span><span class="err"> </span><span class="nc">RequestListener</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span> <span class="p">{</span>
@@ -216,16 +216,15 @@ At first glance, compiler doesn’t give any errors, the code runs and the same 
         <span class="p">.</span><span class="n">into</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div></p>
 <p>Another common case I see a lot is to extend context to display some other views:
-<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt">  <span class="k">fun</span> <span class="nf">Context</span><span class="p">.</span><span class="n">showDialog</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">activity</span><span class="p">:</span> <span class="n">Activity</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">Context</span><span class="p">.</span><span class="n">showDialog</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">activity</span><span class="p">:</span> <span class="n">Activity</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">activity</span> <span class="p">!</span><span class="p">=</span> <span class="k">null</span> <span class="p">&amp;</span><span class="p">&amp;</span> <span class="p">!</span><span class="n">activity</span><span class="p">.</span><span class="n">isFinishing</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">MaterialDialog</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
             <span class="p">.</span><span class="n">content</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="p">.</span><span class="n">positiveText</span><span class="p">(</span><span class="s">&#34;Ok&#34;</span><span class="p">)</span>
             <span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span>
-  </code></pre></div></p>
-<p>Be aware, that by extending <code>Context</code>, you're letting any other context subclasses that don't have access to <code>Window</code> class to call the extension function. For instance, you can access context inside service, therefore you can call <code>context.showDialog()</code>, but dialog needs to be drawn on window, it needs an access to content which lives on activity, therefore calling <code>showDialog()</code> in service will crash</p>
+<span class="p">}</span></code></pre></div></p>
+<p>Be aware, that by extending <code>Context</code>, you're letting any other context subclasses that don't have access to <code>Window</code> class to call the extension function. For instance, you can access context inside service, therefore you can call <code>context.showDialog()</code>, but dialog needs to be drawn on window, it needs an access to content which lives on activity, therefore calling <code>showDialog()</code> in service will crash.</p>
 <p>The End!</p>
 
         </div><p class = 'post_date pale'>December 22, 2019</p>
