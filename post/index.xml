@@ -12,14 +12,13 @@
     
     
     <item>
-      <title>Some good and bad examples of making extensions</title>
+      <title>Good and sad examples of extension functions</title>
       <link>https://aidaissayeva.github.io/post/common-practices-of-writing-extension-functions/</link>
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://aidaissayeva.github.io/post/common-practices-of-writing-extension-functions/</guid>
-      <description>This article is based off my talk I gave at Droidcon SF this year.
- Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions give an ability to make a new functionality of an extending class without making changes to it, and defined outside of the class. They are very beneficial when you want to tweak an api, that can&#39;t be modified.
-Let&#39;s go over some sad examples of making extensions:</description>
+      <description>This article is based off my talk at Droidcon SF this year.
+ Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions provide the ability to make new functionality of an extending class without making changes to it. In addition, the new functionality can be declared outside of the extending class. They&#39;re also very beneficial when you want to tweak an api that can&#39;t be modified.</description>
     </item>
     
   </channel>

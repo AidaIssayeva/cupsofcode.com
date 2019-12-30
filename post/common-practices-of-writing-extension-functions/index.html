@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-  <title>Some good and bad examples of making extensions | Lazily instantiated</title>
+  <title>Good and sad examples of extension functions | Lazily instantiated</title>
   <meta charset='utf-8'>
   <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
   <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
@@ -16,9 +16,9 @@
 <meta name = 'keywords' content = 'Lazily instantiated'>
 <meta property = 'og:locale' content = 'en_US' />
 <meta property = 'og:type' content = 'article' />
-<meta property = 'og:title' content = 'Some good and bad examples of making extensions' />
-<meta property = 'og:description' content = 'This article is based off my talk I gave at Droidcon SF this year.
- Kotlin is well-known for null-safety and extension functions features among …'>
+<meta property = 'og:title' content = 'Good and sad examples of extension functions' />
+<meta property = 'og:description' content = 'This article is based off my talk at Droidcon SF this year.
+ Kotlin is well-known for null-safety and extension functions features among android …'>
 <meta property = 'og:url' content = 'https://aidaissayeva.github.io/post/common-practices-of-writing-extension-functions/' />
 <meta property = 'og:image' content = 'https://aidaissayeva.github.io/images/speakers.jpg'/>
 <link rel='apple-touch-icon' sizes='180x180' href='https://aidaissayeva.github.io/images/icons/apple-touch-icon.png'>
@@ -66,16 +66,16 @@
       
   <div class = 'wrap mt post'>
     <div>
-      <h1 class = 'post_title'>Some good and bad examples of making extensions</h1>
+      <h1 class = 'post_title'>Good and sad examples of extension functions</h1>
       <div class = 'post_body'>
         <div class = 'post_inner'>
         
           <img src = 'https://aidaissayeva.github.io/images/speakers.jpg' alt = 'speakers.jpg' class = 'post_thumbnail'>
         
-          <p>This article is based off my talk I gave at Droidcon SF this year.</p>
+          <p>This article is based off my <a href="https://aidaissayeva.github.io/talks/">talk</a> at Droidcon SF this year.</p>
 <hr>
-<p>Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions give an ability to make a new functionality of an extending class without making changes to it, and defined outside of the class. They are very beneficial when you want to tweak an api, that can't be modified.</p>
-<p>Let's go over some sad examples of making extensions:</p>
+<p>Kotlin is well-known for null-safety and extension functions features among android developers. <a href="https://kotlinlang.org/docs/reference/extensions.html">Extension functions</a> provide the ability to make new functionality of an extending class without making changes to it. In addition, the new functionality can be declared outside of the extending class. They're also very beneficial when you want to tweak an api that can't be modified.</p>
+<p>Writing a good extension function comes with practice, and there are no universal rules on how and when to make them. Every developer declares the rules for themselves based on business need of an app. But regardless of what the needs are, there are some rules I've set to myself. Let's go over some sad examples of making extensions:</p>
 <h3 id="extending-android-and-java-common-types-to-meet-business-logic">Extending android and java common types to meet business logic</h3>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">CharSequence</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">Animal</span><span class="p">(</span>
@@ -103,6 +103,7 @@ Or common to common:</p>
 <span class="k">public</span> <span class="k">inline</span> <span class="k">fun</span> <span class="nf">String</span><span class="p">.</span><span class="n">toPattern</span><span class="p">(</span><span class="n">flags</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span><span class="p">:</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div>
+<p>The main benefit of splitting is that you'll</p>
 <h3 id="modifying-members-of-an-extending-class">Modifying members of an extending class</h3>
 <p>Extension functions are meant to extend a class with new functionality, not to modify or insert members to it.</p>
 <p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">MainActivity</span><span class="p">.</span><span class="n">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
@@ -120,7 +121,7 @@ In the example above, extension function <code>showWhiteLoadingIndicator()</code
     <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
 
 <span class="p">}</span></code></pre></div>
-<p>Although this might work and some developers do practice it, making an extension function out of it seems an overhead to me. No one cancelled out regular member functions, that can help you achieve the same functionality in the end.</p>
+<p>Although this might work and some developers do practice it, making an extension function out of it seems as an overhead to me. No one cancelled out regular member functions, that can help you achieve the same functionality in the end.</p>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"> <span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 
      <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
@@ -132,9 +133,9 @@ In the example above, extension function <code>showWhiteLoadingIndicator()</code
             <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
          <span class="p">}</span>
      <span class="p">}</span></code></pre></div>
-<h3 id="using-the-same-name-as-member-function">Using the same name as member function</h3>
+<h3 id="using-the-same-name-as-a-member-function">Using the same name as a member function</h3>
 <p>This is not a sad example, more of a caution to developers, who are switching to Kotlin and trying out extension functions.
-When making an extension function, be careful with naming. If it matches the member function, and is applicable to given arguments, compiler will choose a member function over an extension function.</p>
+When making an extension function, be careful with naming. If it matches a member function, and is applicable to given arguments, compiler will choose the member function over an extension function.</p>
 <p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="n">@RemotableViewMethod</span>
 <span class="k">public</span> <span class="n">void</span> <span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">@ColorInt</span> <span class="n">int</span> <span class="n">color</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">mBackground</span> <span class="n">instanceof</span> <span class="n">ColorDrawable</span><span class="p">)</span> <span class="p">{</span>
@@ -162,7 +163,69 @@ Instead, the easiest solution will be to rename the extension function:</p>
         <span class="p">)</span>
     <span class="p">)</span>
 <span class="p">}</span></code></pre></div>
-<p>Practice, practice, practice</p>
+<h3 id="extending-context-on-every-occasion">Extending context on every occasion</h3>
+<p>We all have heard the best way to start converting your app to kotlin is by converting util or helper methods into extension functions. Most likely, those methods at some point require the context to be passed:
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">showGif</span><span class="p">(</span><span class="n">String</span> <span class="n">url</span><span class="p">,</span> <span class="n">Context</span> <span class="n">context</span><span class="p">,</span> <span class="n">ImageView</span> <span class="n">imageView</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Glide</span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">listener</span><span class="p">(</span><span class="n">new</span> <span class="n">RequestListener</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">@Override</span> <span class="k">public</span> <span class="n">boolean</span> <span class="n">onLoadFailed</span><span class="p">(</span><span class="n">@Nullable</span> <span class="n">GlideException</span> <span class="n">e</span><span class="p">,</span> <span class="n">Object</span> <span class="n">model</span><span class="p">,</span>
+            <span class="n">Target</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span> <span class="n">target</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">isFirstResource</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">@Override</span> <span class="k">public</span> <span class="n">boolean</span> <span class="n">onResourceReady</span><span class="p">(</span><span class="n">GifDrawable</span> <span class="n">resource</span><span class="p">,</span> <span class="n">Object</span> <span class="n">model</span><span class="p">,</span>
+            <span class="n">Target</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span> <span class="n">target</span><span class="p">,</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">isFirstResource</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">into</span><span class="p">(</span><span class="n">imageView</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div></p>
+<p>And naturally, the first thought is to extend the context where the rest of parameters can be passed to it:
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">Context</span><span class="p">.</span><span class="n">showGif</span><span class="p">(</span><span class="n">imageView</span><span class="p">:</span> <span class="n">ImageView</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Glide</span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">listener</span><span class="p">(</span><span class="k">object</span> <span class="err">:</span><span class="err"> </span><span class="nc">RequestListener</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span> <span class="p">{</span>
+            <span class="k">override</span> <span class="k">fun</span> <span class="nf">onLoadFailed</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">GlideException</span><span class="p">?</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">?</span><span class="p">,</span>
+                <span class="n">target</span><span class="p">:</span> <span class="n">Target</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span><span class="p">?</span><span class="p">,</span><span class="n">isFirstResource</span><span class="p">:</span> <span class="n">Boolean</span>
+            <span class="p">)</span> <span class="p">=</span> <span class="k">false</span>
+
+            <span class="k">override</span> <span class="k">fun</span> <span class="nf">onResourceReady</span><span class="p">(</span><span class="n">resource</span><span class="p">:</span> <span class="n">GifDrawable</span><span class="p">?</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">?</span><span class="p">,</span>
+                <span class="n">target</span><span class="p">:</span> <span class="n">Target</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span><span class="p">?</span><span class="p">,</span> <span class="n">dataSource</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">?</span><span class="p">,</span>
+                <span class="n">isFirstResource</span><span class="p">:</span> <span class="n">Boolean</span>
+            <span class="p">)</span> <span class="p">=</span> <span class="k">false</span>
+        <span class="p">}</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">into</span><span class="p">(</span><span class="n">imageView</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+At first glance, compiler doesn’t give any errors, the code runs and the same functionality is preserved. But if we look at the docs, we can see that <code>ImageView</code> class has already member of type <code>Context</code>, therefore we can retrieve context from it directly by extending <code>Imageview</code>:
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt">  <span class="k">fun</span> <span class="nf">ImageView</span><span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Glide</span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">context</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">listener</span><span class="p">(</span><span class="k">object</span> <span class="err">:</span><span class="err"> </span><span class="nc">RequestListener</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span> <span class="p">{</span>
+            <span class="k">override</span> <span class="k">fun</span> <span class="nf">onLoadFailed</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">GlideException</span><span class="p">?</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">?</span><span class="p">,</span>
+                <span class="n">target</span><span class="p">:</span> <span class="n">Target</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span><span class="p">?</span><span class="p">,</span> <span class="n">isFirstResource</span><span class="p">:</span> <span class="n">Boolean</span>
+            <span class="p">)</span> <span class="p">=</span> <span class="k">false</span>
+
+            <span class="k">override</span> <span class="k">fun</span> <span class="nf">onResourceReady</span><span class="p">(</span><span class="n">resource</span><span class="p">:</span> <span class="n">GifDrawable</span><span class="p">?</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">?</span><span class="p">,</span>
+                <span class="n">target</span><span class="p">:</span> <span class="n">Target</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span><span class="p">?</span><span class="p">,</span> <span class="n">dataSource</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">?</span><span class="p">,</span>
+                <span class="n">isFirstResource</span><span class="p">:</span> <span class="n">Boolean</span>
+            <span class="p">)</span> <span class="p">=</span> <span class="k">false</span>
+        <span class="p">}</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">into</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div></p>
+<p>Another common case I see a lot is to extend context to display some other views:
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt">  <span class="k">fun</span> <span class="nf">Context</span><span class="p">.</span><span class="n">showDialog</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">activity</span><span class="p">:</span> <span class="n">Activity</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">activity</span> <span class="p">!</span><span class="p">=</span> <span class="k">null</span> <span class="p">&amp;</span><span class="p">&amp;</span> <span class="p">!</span><span class="n">activity</span><span class="p">.</span><span class="n">isFinishing</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">MaterialDialog</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">content</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">positiveText</span><span class="p">(</span><span class="s">&#34;Ok&#34;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+  </code></pre></div></p>
+<p>Be aware, that by extending <code>Context</code>, you're letting any other context subclasses that don't have access to <code>Window</code> class to call the extension function. For instance, you can access context inside service, therefore you can call <code>context.showDialog()</code>, but dialog needs to be drawn on window, it needs an access to content which lives on activity, therefore calling <code>showDialog()</code> in service will crash</p>
 <p>The End!</p>
 
         </div><p class = 'post_date pale'>December 22, 2019</p>
