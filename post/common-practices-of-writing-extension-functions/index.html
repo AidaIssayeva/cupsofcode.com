@@ -75,7 +75,7 @@
           <p>This article is based off my <a href="https://aidaissayeva.github.io/talks/">talk</a> at Droidcon SF this year.</p>
 <hr>
 <p>Kotlin is well-known for null-safety and extension functions features among android developers. <a href="https://kotlinlang.org/docs/reference/extensions.html">Extension functions</a> provide the ability to make new functionality of an extending class without making changes to it. In addition, the new functionality can be declared outside of the extending class. They're also very beneficial when you want to tweak an api that can't be modified.</p>
-<p>Writing a good extension function comes with practice, and there are no universal rules on how or when to make them. Every developer declares the rules for themselves based on the business need of an app. But regardless of what the needs are, there are some rules I've set for myself. Let's go over some sad examples of making extensions:</p>
+<p>Writing a good extension function comes with practice, and there are no universal rules on how or when to make them. Every developer declares the rules for themselves based on the business need of an app. But regardless of what the needs are, there are some rules I've set for myself. <em><strong>Let's go over some sad examples of making extensions:</strong></em></p>
 <h3 id="extending-android-and-java-common-types-to-meet-business-logic">Extending android and java common types to meet business logic</h3>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">CharSequence</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">Animal</span><span class="p">(</span>
@@ -103,7 +103,6 @@ Or common to common:</p>
 <span class="k">public</span> <span class="k">inline</span> <span class="k">fun</span> <span class="nf">String</span><span class="p">.</span><span class="n">toPattern</span><span class="p">(</span><span class="n">flags</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span><span class="p">:</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div>
-<p>The main benefit of splitting is that you'll</p>
 <h3 id="modifying-members-of-an-extending-class">Modifying members of an extending class</h3>
 <p>Extension functions are meant to extend a class with new functionality, not to modify or insert members to it.</p>
 <p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">MainActivity</span><span class="p">.</span><span class="n">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
@@ -225,7 +224,30 @@ At first glance, compiler doesn’t give any errors, the code runs and the same 
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div></p>
 <p>Be aware, that by extending <code>Context</code>, you're letting any other context subclasses that don't have access to <code>Window</code> class to call the extension function. For instance, you can access context inside service, therefore you can call <code>context.showDialog()</code>, but dialog needs to be drawn on window, it needs an access to content which lives on activity, therefore calling <code>showDialog()</code> in service will crash.</p>
-<p>The End!</p>
+<p><em><strong>Now about some good practices:</strong></em></p>
+<h3 id="making-extension-function-out-of-nullable-receiver">Making extension function out of nullable receiver</h3>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">public</span> <span class="k">actual</span> <span class="k">fun</span> <span class="nf">String</span><span class="o">?.</span><span class="n">equals</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="n">String</span><span class="p">?</span><span class="p">,</span> <span class="n">ignoreCase</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="p">=</span><span class="p">=</span><span class="p">=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">other</span> <span class="p">=</span><span class="p">=</span><span class="p">=</span> <span class="k">null</span>
+    <span class="k">return</span> <span class="k">if</span> <span class="p">(</span><span class="p">!</span><span class="n">ignoreCase</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">this</span> <span class="k">as</span> <span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">String</span><span class="p">)</span><span class="p">.</span><span class="n">equals</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="p">(</span><span class="k">this</span> <span class="k">as</span> <span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">String</span><span class="p">)</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="adding-iterators-via-extension-functions">Adding iterators via extension functions</h3>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">inline</span> <span class="k">fun</span> <span class="nf">Menu</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">MenuItem</span><span class="p">)</span> <span class="p">-</span><span class="p">&gt;</span> <span class="n">Unit</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">index</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">size</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">action</span><span class="p">(</span><span class="n">getItem</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="converting-from-one-interface-to-another">Converting from one interface to another</h3>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">public</span> <span class="k">fun</span> &lt;K, V&gt; <span class="nf">Map</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;</span><span class="p">.</span><span class="n">asSequence</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="n">Entry</span><span class="p">&lt;</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;</span><span class="p">&gt;</span> <span class="p">{</span>
+
+    <span class="k">return</span> <span class="n">entries</span><span class="p">.</span><span class="n">asSequence</span><span class="p">(</span><span class="p">)</span>
+
+<span class="p">}</span></code></pre></div>
+<p>It's important to structure extension functions properly. I usually create a file, that contains all extension functions of receiver type. It's easy down the road for new developers in the team to not make duplicated functions, and also easy to copy a file from one project to another 😄</p>
+<p>Practice, practice, practice.</p>
 
         </div><p class = 'post_date pale'>December 22, 2019</p>
         <div class ='post_extra mb-2'>
