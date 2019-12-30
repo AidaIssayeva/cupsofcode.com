@@ -88,21 +88,7 @@
     <span class="p">)</span>
 <span class="p">}</span></code></pre></div>
 <p>Do business to business:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">WildAnimal</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">WildAnimal</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">Animal</span><span class="p">(</span>
         <span class="n">id</span> <span class="p">=</span> <span class="n">id</span><span class="p">,</span>
         <span class="n">name</span> <span class="p">=</span> <span class="n">name</span><span class="p">,</span>
@@ -111,40 +97,15 @@
         <span class="n">description</span> <span class="p">=</span> <span class="n">shortDescription</span><span class="p">,</span>
         <span class="n">inRedList</span> <span class="p">=</span> <span class="n">inRedList</span>
     <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Or common to common:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="n">@kotlin</span><span class="p">.</span><span class="k">internal</span><span class="p">.</span><span class="n">InlineOnly</span>
+<span class="p">}</span></code></pre></div>
+Or common to common:</p>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="n">@kotlin</span><span class="p">.</span><span class="k">internal</span><span class="p">.</span><span class="n">InlineOnly</span>
 <span class="k">public</span> <span class="k">inline</span> <span class="k">fun</span> <span class="nf">String</span><span class="p">.</span><span class="n">toPattern</span><span class="p">(</span><span class="n">flags</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span><span class="p">:</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="modifying-members-of-an-extending-class">Modifying members of an extending class</h3>
+<span class="p">}</span></code></pre></div>
+<h3 id="modifying-members-of-an-extending-class">Modifying members of an extending class</h3>
 <p>Extension functions are meant to extend a class with new functionality, not to modify or insert members to it.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">MainActivity</span><span class="p">.</span><span class="n">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">MainActivity</span><span class="p">.</span><span class="n">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="n">mNumActiveLoadingIndicators</span><span class="p">+</span><span class="p">+</span>
 
@@ -152,131 +113,59 @@
        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>In the example above, extension function <code>showWhiteLoadingIndicator()</code> is incrementing a member of <code>MainActivity</code> <code>mNumActiveLoadingIndicators</code>.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span></code></pre></div>
+In the example above, extension function <code>showWhiteLoadingIndicator()</code> is incrementing a member of <code>MainActivity</code> <code>mNumActiveLoadingIndicators</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
 
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Although this might work and some developers do practice it, making an extension function out of it seems an overhead to me. No one cancelled out regular member functions, that can help you achieve the same functionality in the end.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span></code></pre></div>
+<p>Although this might work and some developers do practice it, making an extension function out of it seems an overhead to me. No one cancelled out regular member functions, that can help you achieve the same functionality in the end.</p>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"> <span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
+     <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
 
-    <span class="k">fun</span> <span class="nf">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">mNumActiveLoadingIndicators</span><span class="p">+</span><span class="p">+</span>
+     <span class="k">fun</span> <span class="nf">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">mNumActiveLoadingIndicators</span><span class="p">+</span><span class="p">+</span>
 
-        <span class="n">runOnUiThread</span> <span class="p">{</span>
-           <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="using-the-same-name-as-member-function">Using the same name as member function</h3>
+         <span class="n">runOnUiThread</span> <span class="p">{</span>
+            <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+         <span class="p">}</span>
+     <span class="p">}</span></code></pre></div>
+<h3 id="using-the-same-name-as-member-function">Using the same name as member function</h3>
 <p>This is not a sad example, more of a caution to developers, who are switching to Kotlin and trying out extension functions.
 When making an extension function, be careful with naming. If it matches the member function, and is applicable to given arguments, compiler will choose a member function over an extension function.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@RemotableViewMethod</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBackgroundColor</span><span class="o">(</span><span class="nd">@ColorInt</span> <span class="kt">int</span> <span class="n">color</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">mBackground</span> <span class="k">instanceof</span> <span class="n">ColorDrawable</span><span class="o">)</span> <span class="o">{</span>
-        <span class="o">(</span><span class="o">(</span><span class="n">ColorDrawable</span><span class="o">)</span> <span class="n">mBackground</span><span class="o">.</span><span class="na">mutate</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">color</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">computeOpaqueFlags</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">mBackgroundResource</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">setBackground</span><span class="o">(</span><span class="k">new</span> <span class="n">ColorDrawable</span><span class="o">(</span><span class="n">color</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>setBackgroundColor(@ColorInt int color)</code> is a member function of <code>View</code> class in android, and it accepts argument of type <code>int</code>.
+<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="n">@RemotableViewMethod</span>
+<span class="k">public</span> <span class="n">void</span> <span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">@ColorInt</span> <span class="n">int</span> <span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mBackground</span> <span class="n">instanceof</span> <span class="n">ColorDrawable</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">(</span><span class="p">(</span><span class="n">ColorDrawable</span><span class="p">)</span> <span class="n">mBackground</span><span class="p">.</span><span class="n">mutate</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">computeOpaqueFlags</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">mBackgroundResource</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">setBackground</span><span class="p">(</span><span class="n">new</span> <span class="n">ColorDrawable</span><span class="p">(</span><span class="n">color</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<code>setBackgroundColor(@ColorInt int color)</code> is a member function of <code>View</code> class in android, and it accepts argument of type <code>int</code>.
 Now if we look at the below extension function, the name and argument type match the member function.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">colorResId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">setBackgroundColor</span><span class="p">(</span>
-        <span class="n">ContextCompat</span><span class="p">.</span><span class="n">getColor</span><span class="p">(</span>
-            <span class="n">context</span><span class="p">,</span> <span class="n">colorResId</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Instead, the easiest solution will be to rename the extension function:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColorResId</span><span class="p">(</span><span class="n">colorId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"> <span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">colorResId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">setBackgroundColor</span><span class="p">(</span>
+         <span class="n">ContextCompat</span><span class="p">.</span><span class="n">getColor</span><span class="p">(</span>
+             <span class="n">context</span><span class="p">,</span> <span class="n">colorResId</span>
+         <span class="p">)</span>
+     <span class="p">)</span>
+ <span class="p">}</span></code></pre></div>
+Instead, the easiest solution will be to rename the extension function:</p>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColorResId</span><span class="p">(</span><span class="n">colorId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">setBackgroundColor</span><span class="p">(</span>
         <span class="n">ContextCompat</span><span class="p">.</span><span class="n">getColor</span><span class="p">(</span>
             <span class="n">context</span><span class="p">,</span> <span class="n">colorId</span>
         <span class="p">)</span>
     <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Practice, practice, practice</p>
+<span class="p">}</span></code></pre></div>
+<p>Practice, practice, practice</p>
 <p>The End!</p>
 
-        </div><p class = 'post_date pale'>December 30, 2019</p>
+        </div><p class = 'post_date pale'>December 22, 2019</p>
         <div class ='post_extra mb-2'>
           <div class = 'copy'></div>
 
