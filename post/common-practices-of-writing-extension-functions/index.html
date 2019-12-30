@@ -77,21 +77,7 @@
 <p>Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions give an ability to make a new functionality of an extending class without making changes to it, and defined outside of the class. They are very beneficial when you want to tweak an api, that can't be modified.</p>
 <p>Let's go over some sad examples of making extensions:</p>
 <h3 id="extending-android-and-java-common-types-to-meet-business-logic">Extending android and java common types to meet business logic</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">CharSequence</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">CharSequence</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">Animal</span><span class="p">(</span>
         <span class="n">id</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
         <span class="n">name</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
@@ -100,10 +86,8 @@
         <span class="n">inRedList</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
         <span class="n">description</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span>
     <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Do business to business:</p>
+<span class="p">}</span></code></pre></div>
+<p>Do business to business:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
