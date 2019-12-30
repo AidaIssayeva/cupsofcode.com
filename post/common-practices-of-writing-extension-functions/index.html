@@ -87,8 +87,8 @@
         <span class="n">description</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span>
     <span class="p">)</span>
 <span class="p">}</span></code></pre></div>
-<p>Do business to business:</p>
-<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">WildAnimal</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
+<p>Do business to business:
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">WildAnimal</span><span class="p">.</span><span class="n">toAnimal</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">Animal</span><span class="p">(</span>
         <span class="n">id</span> <span class="p">=</span> <span class="n">id</span><span class="p">,</span>
         <span class="n">name</span> <span class="p">=</span> <span class="n">name</span><span class="p">,</span>
@@ -97,12 +97,12 @@
         <span class="n">description</span> <span class="p">=</span> <span class="n">shortDescription</span><span class="p">,</span>
         <span class="n">inRedList</span> <span class="p">=</span> <span class="n">inRedList</span>
     <span class="p">)</span>
-<span class="p">}</span></code></pre></div>
-Or common to common:</p>
+<span class="p">}</span></code></pre></div></p>
+<p>Or common to common:
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="n">@kotlin</span><span class="p">.</span><span class="k">internal</span><span class="p">.</span><span class="n">InlineOnly</span>
 <span class="k">public</span> <span class="k">inline</span> <span class="k">fun</span> <span class="nf">String</span><span class="p">.</span><span class="n">toPattern</span><span class="p">(</span><span class="n">flags</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span><span class="p">)</span><span class="p">:</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></div></p>
 <h3 id="modifying-members-of-an-extending-class">Modifying members of an extending class</h3>
 <p>Extension functions are meant to extend a class with new functionality, not to modify or insert members to it.</p>
 <p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">MainActivity</span><span class="p">.</span><span class="n">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
@@ -133,8 +133,7 @@ In the example above, extension function <code>showWhiteLoadingIndicator()</code
          <span class="p">}</span>
      <span class="p">}</span></code></pre></div>
 <h3 id="using-the-same-name-as-a-member-function">Using the same name as a member function</h3>
-<p>This is not a sad example, more of a caution to developers, who are switching to Kotlin and trying out extension functions.
-When making an extension function, be careful with naming. If it matches a member function, and is applicable to given arguments, compiler will choose the member function over an extension function.</p>
+<p>This is not a sad example, more of a caution to developers, who are switching to Kotlin and trying out extension functions. When making an extension function, be careful with naming. If it matches a member function, and is applicable to given arguments, compiler will choose the member function over an extension function.</p>
 <p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="n">@RemotableViewMethod</span>
 <span class="k">public</span> <span class="n">void</span> <span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">@ColorInt</span> <span class="n">int</span> <span class="n">color</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">mBackground</span> <span class="n">instanceof</span> <span class="n">ColorDrawable</span><span class="p">)</span> <span class="p">{</span>
@@ -147,14 +146,14 @@ When making an extension function, be careful with naming. If it matches a membe
 <span class="p">}</span></code></pre></div>
 <code>setBackgroundColor(@ColorInt int color)</code> is a member function of <code>View</code> class in android, and it accepts argument of type <code>int</code>.
 Now if we look at the below extension function, the name and argument type match the member function.</p>
-<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">colorResId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">colorResId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
      <span class="n">setBackgroundColor</span><span class="p">(</span>
          <span class="n">ContextCompat</span><span class="p">.</span><span class="n">getColor</span><span class="p">(</span>
              <span class="n">context</span><span class="p">,</span> <span class="n">colorResId</span>
          <span class="p">)</span>
      <span class="p">)</span>
  <span class="p">}</span></code></pre></div>
-Instead, the easiest solution will be to rename the extension function:</p>
+<p>Instead, the easiest solution will be to rename the extension function:</p>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">View</span><span class="p">.</span><span class="n">setBackgroundColorResId</span><span class="p">(</span><span class="n">colorId</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">setBackgroundColor</span><span class="p">(</span>
         <span class="n">ContextCompat</span><span class="p">.</span><span class="n">getColor</span><span class="p">(</span>
@@ -196,8 +195,8 @@ Instead, the easiest solution will be to rename the extension function:</p>
         <span class="p">}</span><span class="p">)</span>
         <span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="p">.</span><span class="n">into</span><span class="p">(</span><span class="n">imageView</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
-At first glance, compiler doesn’t give any errors, the code runs and the same functionality is preserved. But if we look at the docs, we can see that <code>ImageView</code> class has already member of type <code>Context</code>, therefore we can retrieve context from it directly by extending <code>Imageview</code>:
+<span class="p">}</span></code></pre></div></p>
+<p>At first glance, compiler doesn’t give any errors, the code runs and the same functionality is preserved. But if we look at the docs, we can see that <code>ImageView</code> class has already member of type <code>Context</code>, therefore we can retrieve context from it directly by extending <code>Imageview</code>:
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">ImageView</span><span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">Glide</span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">context</span><span class="p">)</span>
         <span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="p">)</span>
