@@ -6,23 +6,19 @@
     <description>Recent content in android on Lazily instantiated</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Aida Issayeva</copyright>
-    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aidaissayeva.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>How not to abuse extensions in Kotlin</title>
-      <link>https://aidaissayeva.github.io/post/bad-good-extensions/</link>
-      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      <title>Common practices of writing extension functions in Kotlin</title>
+      <link>https://aidaissayeva.github.io/post/common-practices-of-writing-extension-functions/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://aidaissayeva.github.io/post/bad-good-extensions/</guid>
-      <description>Kotlin extensions are very practical. They help to reduce the boilerplate of the code.
-Code highlight example: fun &amp;lt;T&amp;gt; Context.getComponent(clazz: Class&amp;lt;T&amp;gt;): T { return this.applicationContext.getSystemService(clazz.name) as T }
-Gist:
- Tweet: I&amp;#39;m in love with `SpannableStringBuilder` extensions. Did not know it&amp;#39;s been out since 2017! #android #androidDev pic.twitter.com/sgGskizj4j
-&amp;mdash; Aida (@Aida_Isay) September 14, 2019  Practice, practice, practice
-The End!</description>
+      <guid>https://aidaissayeva.github.io/post/common-practices-of-writing-extension-functions/</guid>
+      <description>This article is based off my talk I gave at Droidcon SF this year. Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions give an ability to make a new functionality of an extending class without making changes to it, and defined outside of the class. They are very beneficial when you want to tweak an api, that can&#39;t be modified.
+Let&#39;s go over some sad examples of making extensions:</description>
     </item>
     
   </channel>

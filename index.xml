@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Common practices of writing extension functions in Kotlin</title>
+      <link>https://aidaissayeva.github.io/post/common-practices-of-writing-extension-functions/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://aidaissayeva.github.io/post/common-practices-of-writing-extension-functions/</guid>
+      <description>This article is based off my talk I gave at Droidcon SF this year. Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions give an ability to make a new functionality of an extending class without making changes to it, and defined outside of the class. They are very beneficial when you want to tweak an api, that can&#39;t be modified.
+Let&#39;s go over some sad examples of making extensions:</description>
+    </item>
+    
+    <item>
       <title>Tech talks</title>
       <link>https://aidaissayeva.github.io/talks/</link>
       <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
