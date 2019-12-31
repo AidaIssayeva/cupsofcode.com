@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Lazily instantiated</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Aida Issayeva</copyright>
-    <lastBuildDate>Sun, 29 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aidaissayeva.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>speak</title>
+      <link>https://aidaissayeva.github.io/categories/speak/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://aidaissayeva.github.io/categories/speak/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>android</title>
