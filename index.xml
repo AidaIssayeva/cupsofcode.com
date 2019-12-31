@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Good and sad examples of extension functions</title>
+      <link>https://aidaissayeva.github.io/post/good-and-sad-extensions/</link>
+      <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://aidaissayeva.github.io/post/good-and-sad-extensions/</guid>
+      <description>This article is based off my talk at Droidcon SF this year.
+ Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions provide the ability to make new functionality of an extending class without making changes to it. In addition, the new functionality can be declared outside of the extending class. They&#39;re also very beneficial when you want to tweak an api that can&#39;t be modified.</description>
+    </item>
+    
+    <item>
       <title>Tech talks</title>
       <link>https://aidaissayeva.github.io/talks/</link>
       <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
@@ -19,16 +29,6 @@
       <guid>https://aidaissayeva.github.io/talks/</guid>
       <description>Links to my talks:
 2019  Android Summit - August 2019, McLean, VA - &amp;ldquo;Reactive approach to delegation in Kotlin&amp;rdquo;. Links to slides and video. GDG DevFest - November 2019, Sydney, Australia - &amp;ldquo;Reactive approach to delegation in Kotlin&amp;rdquo;. Slides are available. Droidcon SF - November 2019, San Francisco, Ca - &amp;ldquo;Reactive approach to delegation in Kotlin&amp;rdquo;(slides) and &amp;ldquo;Level up your extension game&amp;rdquo;(slides)  </description>
-    </item>
-    
-    <item>
-      <title>Good and sad examples of extension functions</title>
-      <link>https://aidaissayeva.github.io/post/good-and-sad-extensions/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://aidaissayeva.github.io/post/good-and-sad-extensions/</guid>
-      <description>This article is based off my talk at Droidcon SF this year.
- Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions provide the ability to make new functionality of an extending class without making changes to it. In addition, the new functionality can be declared outside of the extending class. They&#39;re also very beneficial when you want to tweak an api that can&#39;t be modified.</description>
     </item>
     
     <item>

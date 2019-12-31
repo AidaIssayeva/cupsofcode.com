@@ -104,7 +104,7 @@
     <span class="k">return</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">regex</span><span class="p">.</span><span class="n">Pattern</span><span class="p">.</span><span class="n">compile</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div></p>
 <h3 id="modifying-members-of-an-extending-class">Modifying members of an extending class</h3>
-<p>Extension functions are meant to extend a class with new functionality, not to modify or insert members to it.</p>
+<p>Extension functions are meant to extend a class with new functionality, not to modify or insert members into it.</p>
 <p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">MainActivity</span><span class="p">.</span><span class="n">showWhiteLoadingIndicator</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="n">mNumActiveLoadingIndicators</span><span class="p">+</span><span class="p">+</span>
@@ -120,7 +120,7 @@ In the example above, extension function <code>showWhiteLoadingIndicator()</code
     <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
 
 <span class="p">}</span></code></pre></div>
-<p>Although this might work and some developers do practice it, making an extension function out of it seems as an overhead to me. No one cancelled out regular member functions, that can help you achieve the same functionality in the end.</p>
+<p>Although this might work and some developers do practice it, making an extension function out of it seems as an overhead to me. No one cancelled out regular member functions, which can help you achieve the same functionality in the end.</p>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 
      <span class="k">var</span> <span class="py">mNumActiveLoadingIndicators</span><span class="p">:</span> <span class="n">Int</span> <span class="p">=</span> <span class="m">0</span>
@@ -162,7 +162,7 @@ Now if we look at the below extension function, the name and argument type match
     <span class="p">)</span>
 <span class="p">}</span></code></pre></div>
 <h3 id="extending-context-on-every-occasion">Extending context on every occasion</h3>
-<p>We all have heard the best way to start converting your app to kotlin is by converting util or helper methods into extension functions. Most likely, those methods at some point require the context to be passed:
+<p>We have all heard that the best way to start converting your app to kotlin is by converting util or helper methods into extension functions. Most likely, those methods at some point require the context to be passed:
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">showGif</span><span class="p">(</span><span class="n">String</span> <span class="n">url</span><span class="p">,</span> <span class="n">Context</span> <span class="n">context</span><span class="p">,</span> <span class="n">ImageView</span> <span class="n">imageView</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">Glide</span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="p">)</span>
       <span class="p">.</span><span class="n">listener</span><span class="p">(</span><span class="n">new</span> <span class="n">RequestListener</span><span class="p">&lt;</span><span class="n">GifDrawable</span><span class="p">&gt;</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
@@ -196,7 +196,7 @@ Now if we look at the below extension function, the name and argument type match
         <span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="p">.</span><span class="n">into</span><span class="p">(</span><span class="n">imageView</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div></p>
-<p>At first glance, compiler doesn’t give any errors, the code runs and the same functionality is preserved. But if we look at the docs, we can see that <code>ImageView</code> class has already member of type <code>Context</code>, therefore we can retrieve context from it directly by extending <code>Imageview</code>:
+<p>At first glance, compiler doesn’t give any errors, the code runs and the same functionality is preserved. But if we look at the docs, we can see that the <code>ImageView</code> class already has member function, that returns a type <code>Context</code>. Therefore we can retrieve context directly from it by extending <code>Imageview</code>:
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">fun</span> <span class="nf">ImageView</span><span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">Glide</span><span class="p">.</span><span class="n">with</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">context</span><span class="p">)</span>
         <span class="p">.</span><span class="n">asGif</span><span class="p">(</span><span class="p">)</span>
@@ -222,9 +222,9 @@ Now if we look at the below extension function, the name and argument type match
             <span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div></p>
-<p>Be aware, that by extending <code>Context</code>, you're letting any other context subclasses that don't have access to <code>Window</code> class to call the extension function. For instance, you can access context inside service, therefore you can call <code>context.showDialog()</code>, but dialog needs to be drawn on window, it needs an access to content which lives on activity, therefore calling <code>showDialog()</code> in service will crash.</p>
+<p>Be aware, that by extending <code>Context</code>, you're letting every other context subclass that doesn't have access to <code>Window</code> class to call the extension function. For instance, you can access context inside service, therefore you can call <code>context.showDialog()</code>, but dialog needs to be drawn on window, that needs an access to content which lives on activity, therefore calling <code>showDialog()</code> in service will crash.</p>
 <p><em><strong>Now about some good practices:</strong></em></p>
-<h3 id="making-extension-function-out-of-nullable-receiver">Making extension function out of nullable receiver</h3>
+<h3 id="making-an-extension-function-out-of-a-nullable-receiver">Making an extension function out of a nullable receiver</h3>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">public</span> <span class="k">actual</span> <span class="k">fun</span> <span class="nf">String</span><span class="o">?.</span><span class="n">equals</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="n">String</span><span class="p">?</span><span class="p">,</span> <span class="n">ignoreCase</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="p">=</span><span class="p">=</span><span class="p">=</span> <span class="k">null</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">other</span> <span class="p">=</span><span class="p">=</span><span class="p">=</span> <span class="k">null</span>
@@ -234,19 +234,20 @@ Now if we look at the below extension function, the name and argument type match
         <span class="p">(</span><span class="k">this</span> <span class="k">as</span> <span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">String</span><span class="p">)</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div>
 <h3 id="adding-iterators-via-extension-functions">Adding iterators via extension functions</h3>
+<p>This is a perfect example of extending a limited api:
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">inline</span> <span class="k">fun</span> <span class="nf">Menu</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">MenuItem</span><span class="p">)</span> <span class="p">-</span><span class="p">&gt;</span> <span class="n">Unit</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">index</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">size</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">action</span><span class="p">(</span><span class="n">getItem</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></div></p>
 <h3 id="converting-from-one-interface-to-another">Converting from one interface to another</h3>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">public</span> <span class="k">fun</span> &lt;K, V&gt; <span class="nf">Map</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;</span><span class="p">.</span><span class="n">asSequence</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="n">Entry</span><span class="p">&lt;</span><span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">&gt;</span><span class="p">&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">entries</span><span class="p">.</span><span class="n">asSequence</span><span class="p">(</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div>
-<p>It's important to structure extension functions properly. I usually create a file, that contains all extension functions of receiver type. It's easy down the road for new developers in the team to not make duplicated functions, and also easy to copy a file from one project to another 😄 .</p>
+<p>It's important to structure extension functions properly. For example, I usually create a file that contains all extension functions of a receiver type. It's easy down the road for new developers in the team to not make duplicated functions, and also easy to copy a file from one project to another 😄 .</p>
 <p>Code samples can be found <a href="https://github.com/AidaIssayeva/Level-up-your-extension-game">here</a></p>
 
-        </div><p class = 'post_date pale'>December 22, 2019</p>
+        </div><p class = 'post_date pale'>December 29, 2019</p>
         <div class ='post_extra mb-2'>
           <div class = 'copy'></div>
 
