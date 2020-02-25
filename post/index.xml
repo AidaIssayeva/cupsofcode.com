@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Lazily instantiated</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Aida Issayeva</copyright>
-    <lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aidaissayeva.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to display notifications in 2020</title>
+      <link>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</guid>
+      <description>Kotlin extensions are very practical. They help to reduce the boilerplate of the code.
+Code highlight example: private lateinit var notificationManager: NotificationManager private lateinit var pendingIntent: PendingIntent private lateinit var action: NotificationCompat.Action
+override fun onCreate(savedInstanceState: Bundle?) { ... notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.O) { val channel = NotificationChannel( CHANNEL_ID, getString(R.string.notification_title), NotificationManager.IMPORTANCE_HIGH ) notificationManager.createNotificationChannel(channel) } val intent = Intent(this, DetailActivity::class.java) pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT) action = NotificationCompat.</description>
+    </item>
     
     <item>
       <title>Recap of 2019: the art of speaking</title>
