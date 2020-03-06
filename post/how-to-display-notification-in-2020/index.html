@@ -110,7 +110,7 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 The same channel id should be passed in notificationBuilder's constructor alongside with context:
-<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="o">!!</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span></code></pre></div></p>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span></code></pre></div></p>
 <p>Made the changes, the notification got displayed!
 But the action button didn't work 😒. After another round of googling, I found out the <code>addAction</code> method in notificationBuilder now requires an <a href="https://developer.android.com/reference/android/app/Notification.Action">Action</a> class, which is basically a wrapper of the arguments <code>addAction</code> method used to accept.</p>
 <p>The full code of sending and displaying notifications nowadays is below:</p>
@@ -140,7 +140,7 @@ But the action button didn't work 😒. After another round of googling, I found
 <span class="p">.</span><span class="p">.</span><span class="p">.</span>
 
 <span class="k">private</span> <span class="k">fun</span> <span class="nf">downloadCompleted</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="o">!!</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span>
+  <span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span>
       <span class="p">.</span><span class="n">setSmallIcon</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">ic_assistant_black_24dp</span><span class="p">)</span>
       <span class="p">.</span><span class="n">setContentTitle</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_title</span><span class="p">)</span><span class="p">)</span>
       <span class="p">.</span><span class="n">setContentText</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_description</span><span class="p">)</span><span class="p">)</span>
