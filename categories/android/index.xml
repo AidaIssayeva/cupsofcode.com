@@ -6,7 +6,7 @@
     <description>Recent content in android on Lazily instantiated</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, Aida Issayeva</copyright>
-    <lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aidaissayeva.github.io/categories/android/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,11 @@
     <item>
       <title>How to display notifications in 2020</title>
       <link>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</guid>
-      <description>🦄Most startup apps heavily rely on third-party libraries to send push notifications to a user, so developers usually don&#39;t pay too much attention to the changes in notifications on Android.
-I was working on my side-project when I decided to send a notification once the download is completed (was checking how DownloadManager works).
+      <description>These days, most startup apps heavily rely on third-party libraries to send push notifications to a user, thus causing developers to usually not pay too much attention to Android notification changes.
+For example, I was working on my side-project which sends a notification once the download is completed (was checking how DownloadManager works).
 Back in 2016, you&#39;d need to initialize NotificationManager and pending intent if notification contains custom action:
 private lateinit var notificationManager: NotificationManager private lateinit var pendingIntent: PendingIntent override fun onCreate(savedInstanceState: Bundle?</description>
     </item>

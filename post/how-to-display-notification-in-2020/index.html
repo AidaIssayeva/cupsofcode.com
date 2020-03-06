@@ -17,7 +17,7 @@
 <meta property = 'og:locale' content = 'en_US' />
 <meta property = 'og:type' content = 'article' />
 <meta property = 'og:title' content = 'How to display notifications in 2020' />
-<meta property = 'og:description' content = '🦄Most startup apps heavily rely on third-party libraries to send push notifications to a user, so developers usually don&#39;t pay too much attention to …'>
+<meta property = 'og:description' content = 'These days, most startup apps heavily rely on third-party libraries to send push notifications to a user, thus causing developers to usually not pay …'>
 <meta property = 'og:url' content = 'https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/' />
 <meta property = 'og:image' content = 'https://aidaissayeva.github.io/images/spring.jpg'/>
 <link rel='apple-touch-icon' sizes='180x180' href='https://aidaissayeva.github.io/images/icons/apple-touch-icon.png'>
@@ -71,8 +71,8 @@
         
           <img src = 'https://aidaissayeva.github.io/images/spring.jpg' alt = 'spring.jpg' class = 'post_thumbnail'>
         
-          <p>🦄Most startup apps heavily rely on third-party libraries to send push notifications to a user, so developers usually don't pay too much attention to the changes in notifications on Android.</p>
-<p>I was working on my side-project when I decided to send a notification once the download is completed (was checking how <a href="https://developer.android.com/reference/android/app/DownloadManager">DownloadManager</a> works).</p>
+          <p>These days, most startup apps heavily rely on third-party libraries to send push notifications to a user, thus causing developers to usually not pay too much attention to Android notification changes.</p>
+<p>For example, I was working on my side-project which sends a notification once the download is completed (was checking how <a href="https://developer.android.com/reference/android/app/DownloadManager">DownloadManager</a> works).</p>
 <p>Back in 2016, you'd need to initialize <a href="https://developer.android.com/reference/android/app/NotificationManager">NotificationManager</a> and pending intent if notification contains custom action:</p>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">notificationManager</span><span class="p">:</span> <span class="n">NotificationManager</span>
 <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">pendingIntent</span><span class="p">:</span> <span class="n">PendingIntent</span>
@@ -94,7 +94,7 @@
     <span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">icon</span><span class="p">,</span> <span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_button</span><span class="p">)</span><span class="p">,</span> <span class="n">pendingIntent</span><span class="p">)</span>
 
 <span class="n">notificationManager</span><span class="p">.</span><span class="n">notify</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">builder</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="p">)</span><span class="p">)</span></code></pre></div>
-<p>After writing code and running the app, the notification wasn't getting displayed. So I thought the issue maybe is in incorrectly implementing DownloadManager, since it's the new thing I was playing around. Debugged and saw the DownloadManager worked flawlessly and notificationBuilder did get called, but nothing was displayed 🤦‍. The next obvious step was to google the issue and the first stackOverflow answer mentioned the changes in NotificationManager for Android O and above.</p>
+<p>After writing code and running the app, the notification wasn't getting displayed. I thought maybe I was incorrectly implementing DownloadManager since I had just started playing around with it. So, after some debugging, I saw that the DownloadManager worked flawlessly and notificationBuilder did in-fact get called, but nothing was displayed :face_palm:‍. The next obvious step was to google the issue. The first stackOverflow answer mentioned the following change in NotificationManager for Android O and above.</p>
 <p>💡So for the devices running on Android O and above, it's required to create a <a href="https://developer.android.com/reference/android/app/NotificationChannel">channel</a> for different kind of notifications where id, name and importance should be passed in constructor:</p>
 <p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">.</span><span class="p">.</span><span class="p">.</span>
@@ -111,8 +111,8 @@
 <span class="p">}</span></code></pre></div>
 The same channel id should be passed in notificationBuilder's constructor alongside with context:
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="o">!!</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span></code></pre></div></p>
-<p>Made the changes, the notification did get displayed!
-But the action button didn't work 😒. After another round of googling, found out the <code>addAction</code> method in notificationBuilder now requires an <a href="https://developer.android.com/reference/android/app/Notification.Action">Action</a> class indeed, which is basically a wrapper of the arguments <code>addAction</code> method used to accept.</p>
+<p>Made the changes, the notification got displayed!
+But the action button didn't work 😒. After another round of googling, I found out the <code>addAction</code> method in notificationBuilder now requires an <a href="https://developer.android.com/reference/android/app/Notification.Action">Action</a> class, which is basically a wrapper of the arguments <code>addAction</code> method used to accept.</p>
 <p>The full code of sending and displaying notifications nowadays is below:</p>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">notificationManager</span><span class="p">:</span> <span class="n">NotificationManager</span>
 <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">action</span><span class="p">:</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Action</span>
@@ -151,7 +151,7 @@ But the action button didn't work 😒. After another round of googling, found o
 <span class="p">}</span></code></pre></div>
 <p>Hopefully, this article was helpful and stay tuned for another then-and-now article!</p>
 
-        </div><p class = 'post_date pale'>February 25, 2020</p>
+        </div><p class = 'post_date pale'>March 01, 2020</p>
         <div class ='post_extra mb-2'>
           <div class = 'copy'></div>
 
