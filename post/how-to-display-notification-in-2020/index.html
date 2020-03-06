@@ -17,8 +17,7 @@
 <meta property = 'og:locale' content = 'en_US' />
 <meta property = 'og:type' content = 'article' />
 <meta property = 'og:title' content = 'How to display notifications in 2020' />
-<meta property = 'og:description' content = 'Kotlin extensions are very practical. They help to reduce the boilerplate of the code.
-Code highlight example: private lateinit var …'>
+<meta property = 'og:description' content = '🦄Most startup apps heavily rely on third-party libraries to send push notifications to a user, so developers usually don&#39;t pay too much attention to …'>
 <meta property = 'og:url' content = 'https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/' />
 <meta property = 'og:image' content = 'https://aidaissayeva.github.io/images/spring.jpg'/>
 <link rel='apple-touch-icon' sizes='180x180' href='https://aidaissayeva.github.io/images/icons/apple-touch-icon.png'>
@@ -72,12 +71,53 @@ Code highlight example: private lateinit var …'>
         
           <img src = 'https://aidaissayeva.github.io/images/spring.jpg' alt = 'spring.jpg' class = 'post_thumbnail'>
         
-          <p>Kotlin extensions are very practical. They help to reduce the boilerplate of the code.</p>
-<p>Code highlight example:
+          <p>🦄Most startup apps heavily rely on third-party libraries to send push notifications to a user, so developers usually don't pay too much attention to the changes in notifications on Android.</p>
+<p>I was working on my side-project when I decided to send a notification once the download is completed (was checking how <a href="https://developer.android.com/reference/android/app/DownloadManager">DownloadManager</a> works).</p>
+<p>Back in 2016, you'd need to initialize <a href="https://developer.android.com/reference/android/app/NotificationManager">NotificationManager</a> and pending intent if notification contains custom action:</p>
 <div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">notificationManager</span><span class="p">:</span> <span class="n">NotificationManager</span>
 <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">pendingIntent</span><span class="p">:</span> <span class="n">PendingIntent</span>
-<span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">action</span><span class="p">:</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Action</span></code></pre></div></p>
-<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">.</span><span class="p">.</span><span class="p">.</span>
+    <span class="n">notificationManager</span> <span class="p">=</span> <span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">NOTIFICATION_SERVICE</span><span class="p">)</span> <span class="k">as</span> <span class="n">NotificationManager</span>
+
+    <span class="k">val</span> <span class="py">intent</span> <span class="p">=</span> <span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">DetailActivity</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+    <span class="n">pendingIntent</span> <span class="p">=</span>
+        <span class="n">PendingIntent</span><span class="p">.</span><span class="n">getActivity</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">intent</span><span class="p">,</span> <span class="n">PendingIntent</span><span class="p">.</span><span class="n">FLAG_UPDATE_CURRENT</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+<p>And then after download is complete, you'd need to build the notification, include pendingIntent and send it to notification manager:</p>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">setSmallIcon</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">ic_assistant_black_24dp</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">setContentTitle</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_title</span><span class="p">)</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">setContentText</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_description</span><span class="p">)</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">setPriority</span><span class="p">(</span><span class="n">NotificationCompat</span><span class="p">.</span><span class="n">PRIORITY_MAX</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">icon</span><span class="p">,</span> <span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_button</span><span class="p">)</span><span class="p">,</span> <span class="n">pendingIntent</span><span class="p">)</span>
+
+<span class="n">notificationManager</span><span class="p">.</span><span class="n">notify</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">builder</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="p">)</span><span class="p">)</span></code></pre></div>
+<p>After writing code and running the app, the notification wasn't getting displayed. So I thought the issue maybe is in incorrectly implementing DownloadManager, since it's the new thing I was playing around. Debugged and saw the DownloadManager worked flawlessly and notificationBuilder did get called, but nothing was displayed 🤦‍. The next obvious step was to google the issue and the first stackOverflow answer mentioned the changes in NotificationManager for Android O and above.</p>
+<p>💡So for the devices running on Android O and above, it's required to create a <a href="https://developer.android.com/reference/android/app/NotificationChannel">channel</a> for different kind of notifications where id, name and importance should be passed in constructor:</p>
+<p><div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">.</span><span class="p">.</span><span class="p">.</span>
+
+    <span class="n">notificationManager</span> <span class="p">=</span> <span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">NOTIFICATION_SERVICE</span><span class="p">)</span> <span class="k">as</span> <span class="n">NotificationManager</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Build</span><span class="p">.</span><span class="n">VERSION</span><span class="p">.</span><span class="n">SDK_INT</span> <span class="p">&gt;</span><span class="p">=</span> <span class="n">Build</span><span class="p">.</span><span class="n">VERSION_CODES</span><span class="p">.</span><span class="n">O</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">val</span> <span class="py">channel</span> <span class="p">=</span> <span class="n">NotificationChannel</span><span class="p">(</span>
+            <span class="n">CHANNEL_ID</span><span class="p">,</span>
+            <span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_title</span><span class="p">)</span><span class="p">,</span>
+            <span class="n">NotificationManager</span><span class="p">.</span><span class="n">IMPORTANCE_HIGH</span>
+        <span class="p">)</span>
+        <span class="n">notificationManager</span><span class="p">.</span><span class="n">createNotificationChannel</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+The same channel id should be passed in notificationBuilder's constructor alongside with context:
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="o">!!</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span></code></pre></div></p>
+<p>Made the changes, the notification did get displayed!
+But the action button didn't work 😒. After another round of googling, found out the <code>addAction</code> method in notificationBuilder now requires an <a href="https://developer.android.com/reference/android/app/Notification.Action">Action</a> class indeed, which is basically a wrapper of the arguments <code>addAction</code> method used to accept.</p>
+<p>The full code of sending and displaying notifications nowadays is below:</p>
+<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">notificationManager</span><span class="p">:</span> <span class="n">NotificationManager</span>
+<span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">action</span><span class="p">:</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Action</span>
+
+<span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">.</span><span class="p">.</span><span class="p">.</span>
 
     <span class="n">notificationManager</span> <span class="p">=</span> <span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">NOTIFICATION_SERVICE</span><span class="p">)</span> <span class="k">as</span> <span class="n">NotificationManager</span>
@@ -91,20 +131,25 @@ Code highlight example: private lateinit var …'>
     <span class="p">}</span>
 
     <span class="k">val</span> <span class="py">intent</span> <span class="p">=</span> <span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">DetailActivity</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
-    <span class="n">pendingIntent</span> <span class="p">=</span>
+    <span class="k">val</span> <span class="py">pendingIntent</span> <span class="p">=</span>
         <span class="n">PendingIntent</span><span class="p">.</span><span class="n">getActivity</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">intent</span><span class="p">,</span> <span class="n">PendingIntent</span><span class="p">.</span><span class="n">FLAG_UPDATE_CURRENT</span><span class="p">)</span>
     <span class="n">action</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Action</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span>
-        <span class="m">0</span><span class="p">,</span> <span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_button</span><span class="p">)</span><span class="p">,</span> <span class="n">pendingIntent</span>
+        <span class="n">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">icon</span><span class="p">,</span> <span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_button</span><span class="p">)</span><span class="p">,</span> <span class="n">pendingIntent</span>
     <span class="p">)</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
-<div class="highlight"><pre class="chroma"><code class="language-kt" data-lang="kt"><span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="o">!!</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span>
-    <span class="p">.</span><span class="n">setSmallIcon</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">ic_assistant_black_24dp</span><span class="p">)</span>
-    <span class="p">.</span><span class="n">setContentTitle</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_title</span><span class="p">)</span><span class="p">)</span>
-    <span class="p">.</span><span class="n">setContentText</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_description</span><span class="p">)</span><span class="p">)</span>
-    <span class="p">.</span><span class="n">setPriority</span><span class="p">(</span><span class="n">NotificationCompat</span><span class="p">.</span><span class="n">PRIORITY_MAX</span><span class="p">)</span>
-    <span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="p">.</span><span class="p">.</span>
 
-<span class="n">notificationManager</span><span class="p">.</span><span class="n">notify</span><span class="p">(</span><span class="n">downloadID</span><span class="p">.</span><span class="n">toInt</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">builder</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="p">)</span><span class="p">)</span></code></pre></div>
+<span class="k">private</span> <span class="k">fun</span> <span class="nf">downloadCompleted</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">val</span> <span class="py">builder</span> <span class="p">=</span> <span class="n">NotificationCompat</span><span class="p">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">context</span><span class="o">!!</span><span class="p">,</span> <span class="n">CHANNEL_ID</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">setSmallIcon</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">ic_assistant_black_24dp</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">setContentTitle</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_title</span><span class="p">)</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">setContentText</span><span class="p">(</span><span class="n">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">notification_description</span><span class="p">)</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">setPriority</span><span class="p">(</span><span class="n">NotificationCompat</span><span class="p">.</span><span class="n">PRIORITY_MAX</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+  <span class="n">notificationManager</span><span class="p">.</span><span class="n">notify</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">builder</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+<p>Hopefully, this article was helpful and stay tuned for another then-and-now article!</p>
 
         </div><p class = 'post_date pale'>February 25, 2020</p>
         <div class ='post_extra mb-2'>
