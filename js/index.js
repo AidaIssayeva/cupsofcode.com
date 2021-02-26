@@ -322,7 +322,7 @@
     }
   }
 
-  
+
 
   doc.addEventListener('click', function(event) {
     let target = event.target;

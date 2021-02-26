@@ -73,6 +73,15 @@
   }
 }
 
+@keyframes moveNavBarRight {
+  from {
+    margin-right: 0%;
+  }
+  to {
+    margin-right: 40%;
+  }
+}
+
 * {
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -608,6 +617,46 @@ aside h3 {
   padding-bottom: 0 !important;
 }
 
+.nav-close {
+  margin-top: 26px;
+  margin-left: 10px;
+  top: 0;
+  width: 10%;
+  position: absolute;
+}
+
+.nav-close-wrap {
+  width: 18px;
+  height: 1.8rem;
+  display: grid;
+  align-items: center;
+  cursor: pointer;
+  z-index: 99;
+  min-height: 1.5rem;
+  position: absolute;
+}
+
+.nav-close, .nav-close::after, .nav-close::before {
+  padding: 1px;
+  border-radius: 2px;
+  background-color: var(--text);
+}
+
+.nav-close::after, .nav-close::before {
+  content: "";
+  position: absolute;
+  width: 1.2rem;
+}
+
+.nav-close::before {
+  top: -0.5rem;
+}
+
+.nav-close::after {
+  top: 0.5rem;
+  right: 0;
+}
+
 .nav-drop {
   cursor: pointer;
   top: 0;
@@ -616,7 +665,7 @@ aside h3 {
 }
 
 .nav-exit {
-  animation: hideMenu 0.5s cubic-bezier(0.52, 0.16, 0.24, 1) forwards;
+  animation: hideMenu 1.5s;
 }
 
 .nav-menu {
