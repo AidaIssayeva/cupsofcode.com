@@ -571,9 +571,9 @@ aside h3 {
 .nav-body {
   box-shadow: 0 1.5rem 6rem rgba(0, 0, 0, 0.17);
   position: fixed;
-  right: 10px;
+  right: -100%;
   z-index: 1;
-  top: 100%;
+  top: 0%;
   opacity: 1;
   overflow: hidden;
   transition: top 0.33s linear;
