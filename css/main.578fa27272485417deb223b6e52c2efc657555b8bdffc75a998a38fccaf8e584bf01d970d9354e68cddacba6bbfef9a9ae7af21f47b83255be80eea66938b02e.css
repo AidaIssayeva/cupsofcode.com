@@ -57,22 +57,26 @@
 
 @keyframes showMenu {
   0% {
-    top: -100%;
+    top: 0%;
+    right: -100%;
     opacity: 0;
   }
   100% {
-    top: 0;
+    top: 0%;
+    right: 0%;
     opacity: 1;
   }
 }
 
 @keyframes hideMenu {
   0% {
-    top: 0;
+    top: 0%;
+    right: 0%;
     opacity: 1;
   }
   100% {
-    top: -100%;
+    top: 0%;
+    right: -100%;
     opacity: 0;
   }
 }
@@ -612,36 +616,6 @@ aside h3 {
   padding-bottom: 0 !important;
 }
 
-.nav-close {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  cursor: pointer;
-  padding: 25px;
-}
-
-.nav-close:after, .nav-close:before {
-  content: '';
-  width: 18px;
-  border-radius: 50%;
-  padding: 1.5px;
-  background: var(--text);
-  opacity: 0.7;
-  position: relative;
-}
-
-.nav-close:before {
-  transform: rotate(20deg) translateX(1.5px);
-}
-
-.nav-close:after {
-  transform: rotate(-20deg) translateX(-1.5px);
-}
-
 .nav-drop {
   cursor: pointer;
   top: 0;
@@ -657,9 +631,12 @@ aside h3 {
   position: relative;
   padding: 10px 25px 10px 0;
   height: 100%;
+  top: 0;
+  right: 0;
   max-width: 1024px;
   margin: 0 auto;
   display: flex;
+  overflow: hidden;
   align-items: center;
   justify-content: space-between;
 }
