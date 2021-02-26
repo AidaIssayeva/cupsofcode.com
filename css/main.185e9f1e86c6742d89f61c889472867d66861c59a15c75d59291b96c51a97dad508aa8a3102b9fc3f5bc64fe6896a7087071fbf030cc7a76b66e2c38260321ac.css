@@ -56,28 +56,20 @@
 }
 
 @keyframes showMenu {
-  0% {
-    top: 0%;
+  from {
     right: -100%;
-    opacity: 0;
   }
-  100% {
-    top: 0%;
+  to {
     right: 0%;
-    opacity: 1;
   }
 }
 
 @keyframes hideMenu {
-  0% {
-    top: 0%;
+  from {
     right: 0%;
-    opacity: 1;
   }
-  100% {
-    top: 0%;
+  to {
     right: -100%;
-    opacity: 0;
   }
 }
 
@@ -582,7 +574,7 @@ aside h3 {
   right: 10px;
   z-index: 1;
   top: 100%;
-  opacity: 0;
+  opacity: 1;
   overflow: hidden;
   transition: top 0.33s linear;
   background: transparent;
