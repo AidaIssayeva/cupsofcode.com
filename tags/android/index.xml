@@ -1,37 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>android on Lazily instantiated</title>
-    <link>https://aidaissayeva.github.io/tags/android/</link>
-    <description>Recent content in android on Lazily instantiated</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2019, Aida Issayeva</copyright>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://aidaissayeva.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to display notifications in 2020</title>
-      <link>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</link>
-      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</guid>
-      <description>These days, most startup apps heavily rely on third-party libraries to send push notifications to a user, thus causing developers to usually not pay too much attention to Android notification changes.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>android on Lazily instantiated</title><link>https://aidaissayeva.github.io/tags/android/</link><description>Recent content in android on Lazily instantiated</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2019, Aida Issayeva</copyright><lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://aidaissayeva.github.io/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>How to display notifications in 2020</title><link>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</link><pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate><guid>https://aidaissayeva.github.io/post/how-to-display-notification-in-2020/</guid><description>These days, most startup apps heavily rely on third-party libraries to send push notifications to a user, thus causing developers to usually not pay too much attention to Android notification changes.
 For example, I was working on my side-project which sends a notification once the download is completed (was checking how DownloadManager works).
-Back in 2016, you&#39;d need to initialize NotificationManager and pending intent if notification contains custom action:
-private lateinit var notificationManager: NotificationManager private lateinit var pendingIntent: PendingIntent override fun onCreate(savedInstanceState: Bundle?</description>
-    </item>
-    
-    <item>
-      <title>Good and sad examples of extension functions</title>
-      <link>https://aidaissayeva.github.io/post/good-and-sad-extensions/</link>
-      <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://aidaissayeva.github.io/post/good-and-sad-extensions/</guid>
-      <description>This article is based off my talk at Droidcon SF this year.
- Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions provide the ability to make new functionality of an extending class without making changes to it. In addition, the new functionality can be declared outside of the extending class. They&#39;re also very beneficial when you want to tweak an api that can&#39;t be modified.</description>
-    </item>
-    
-  </channel>
-</rss>
+Back in 2016, you&amp;rsquo;d need to initialize NotificationManager and pending intent if notification contains custom action:
+1 2 3 4 5 6 7 8 9 10 11 private lateinit var notificationManager: NotificationManager private lateinit var pendingIntent: PendingIntent override fun onCreate(savedInstanceState: Bundle?</description></item><item><title>Good and sad examples of extension functions</title><link>https://aidaissayeva.github.io/post/good-and-sad-extensions/</link><pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate><guid>https://aidaissayeva.github.io/post/good-and-sad-extensions/</guid><description>This article is based off my talk at Droidcon SF this year.
+Kotlin is well-known for null-safety and extension functions features among android developers. Extension functions provide the ability to make new functionality of an extending class without making changes to it. In addition, the new functionality can be declared outside of the extending class. They&amp;rsquo;re also very beneficial when you want to tweak an api that can&amp;rsquo;t be modified.</description></item></channel></rss>
