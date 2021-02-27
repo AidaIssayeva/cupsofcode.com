@@ -80,17 +80,20 @@
     let pop = 'nav-pop';
     let navDrop = elem(`.${drop}`);
     let hidden = 'hidden';
+    let navBarSlideLeft = 'nav-slideLeft';
+    let navBarSlideRight = 'nav-slideRight';
 
     function toggleMenu(){
       modifyClass(navDrop, pop);
-      modifyClass(navBar, hidden);
+
       let menuOpen = containsClass(nav, open);
-      let menuPulled = containsClass(nav, exit);
 
-      let status = menuOpen || menuPulled ? true : false;
+      if(menuOpen){
+        modifyClass(nav, exit);
+      } else {
+        modifyClass(nav, open);
+      }
 
-      status ? modifyClass(nav, exit) : modifyClass(nav, open);
-      status ? modifyClass(nav, open) : modifyClass(nav, exit);
     }
 
     // $('.nav-bar, .nav-close').on('click', () => toggleMenu());
@@ -102,7 +105,8 @@
     });
 
     elem('.nav-drop').addEventListener('click', function(e) {
-      e.target === this ? toggleMenu() : false;
+      //toggleMenu();
+       e.target === this ? toggleMenu() : false;
     });
 
   })();
