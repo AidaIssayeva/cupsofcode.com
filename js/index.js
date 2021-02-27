@@ -105,7 +105,6 @@
     });
 
     elem('.nav-drop').addEventListener('click', function(e) {
-      //toggleMenu();
        e.target === this ? toggleMenu() : false;
     });
 
