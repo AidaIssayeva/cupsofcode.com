@@ -1036,6 +1036,16 @@ aside h3 {
   text-align: left;
 }
 
+.social {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.social,
+.social a {
+  color: var(--theme);
+}
+
 .highlight {
   margin: 1.5rem 0 2.5rem;
 }
