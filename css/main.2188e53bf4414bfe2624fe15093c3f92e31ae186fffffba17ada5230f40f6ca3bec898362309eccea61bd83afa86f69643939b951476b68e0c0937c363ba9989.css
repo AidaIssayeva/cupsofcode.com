@@ -53,6 +53,7 @@
   --font: 'Metropolis', sans-serif;
   --theme: #04a763;
   --ease: cubic-bezier(.19,1,.22,1);
+  --icon-font: 'Font Awesome 5 Brands';
 }
 
 @keyframes showMenu {
@@ -1037,12 +1038,25 @@ aside h3 {
 }
 
 .social {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  position: relative;
+  display: inline;
+  font-family: var(--icon-font);
+}
+
+.social:hover {
+  color: var(--theme);
 }
 
 .social,
 .social a {
+  position: relative;
+  margin-right: 10px;
+  display: inline-flex;
+  color: var(--dark);
+}
+
+.social:hover,
+.social a:hover {
   color: var(--theme);
 }
 
