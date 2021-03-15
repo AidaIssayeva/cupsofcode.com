@@ -652,6 +652,25 @@ aside h3 {
   text-transform: capitalize;
 }
 
+.nav_social {
+  position: absolute;
+  justify-content: space-between;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15%;
+  right: 0;
+}
+
+.nav_social a {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+
+.nav_social a:hover {
+  color: var(--theme);
+}
+
 .post {
   margin: 0 auto;
   width: 100%;
@@ -1038,8 +1057,8 @@ aside h3 {
 }
 
 .social {
-  position: relative;
-  display: inline;
+  position: absolute;
+  display: inline-flex;
   font-family: var(--icon-font);
 }
 
@@ -1051,7 +1070,8 @@ aside h3 {
 .social a {
   position: relative;
   margin-right: 10px;
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   color: var(--dark);
 }
 
