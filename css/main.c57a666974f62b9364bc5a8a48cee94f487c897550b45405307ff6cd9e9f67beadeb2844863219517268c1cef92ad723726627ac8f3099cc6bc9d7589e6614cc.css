@@ -536,14 +536,14 @@ aside h3 {
 }
 
 .nav_bar {
-  width: 100%;
-  position: relative;
+  width: 1.8rem;
+  position: absolute;
 }
 
 .nav_bar-wrap {
   width: 1.8rem;
   height: 1.8rem;
-  display: grid;
+  display: flex;
   align-items: center;
   cursor: pointer;
   z-index: 99;
@@ -563,12 +563,13 @@ aside h3 {
 }
 
 .nav_bar::before {
+  left: 3px;
   top: -0.5rem;
 }
 
 .nav_bar::after {
   top: 0.5rem;
-  right: 0;
+  left: 3px;
 }
 
 .nav-body {
@@ -653,18 +654,17 @@ aside h3 {
 }
 
 .nav_social {
-  position: absolute;
-  justify-content: space-between;
+  position: relative;
   display: inline-flex;
   align-items: center;
-  margin-right: 15%;
+  align-content: space-around;
+  margin-right: 3%;
   right: 0;
 }
 
 .nav_social a {
   display: block;
-  width: 100%;
-  padding: 5px;
+  padding: 10px;
 }
 
 .nav_social a:hover {
