@@ -525,6 +525,26 @@ aside h3 {
   transform: translateX(1.4rem);
 }
 
+.categories {
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  align-content: space-around;
+  justify-content: center;
+  margin: 1.5rem;
+}
+
+.categories a {
+  display: block;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+.categories a:hover {
+  color: var(--theme);
+}
+
 .nav {
   position: fixed;
   top: 0;
