@@ -898,6 +898,19 @@ aside h3 {
   background-position: center right;
 }
 
+.post_buycoffee {
+  max-width: 840px !important;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--accent);
+  justify-content: center;
+}
+
+.post_buycoffee p {
+  padding: 0%;
+  text-align: center;
+}
+
 .pager {
   display: grid;
   grid-template-columns: 2.5rem 1fr 2.5rem;
@@ -958,6 +971,13 @@ aside h3 {
 .archive_item {
   display: grid;
   padding: 1.5rem 0;
+}
+
+.bmc-btn-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pale {
