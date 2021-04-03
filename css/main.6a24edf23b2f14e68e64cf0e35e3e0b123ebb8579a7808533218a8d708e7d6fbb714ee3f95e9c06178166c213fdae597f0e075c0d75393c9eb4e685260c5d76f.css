@@ -43,15 +43,17 @@
 
 :root {
   --color-mode: 'lit';
-  --light: #fff;
-  --dark: #000;
-  --gray: #f5f5f5;
-  --bubble: #131313;
-  --accent: var(--gray);
-  --bg: var(--light);
-  --text: var(--dark);
+  --light-shade: #f5f5f5;
+  --light-accent: #04A763;
+  --main: #9d7463;
+  --dark-accent:#d37556;
+  --dark-shade: #565C5E;
+  --text-dark: #000;
+  --accent: var(--light-accent);
+  --bg: var(--light-shade);
+  --text: var(--text-dark);
   --font: 'Metropolis', sans-serif;
-  --theme: #04a763;
+  --theme: var(--main);
   --ease: cubic-bezier(.19,1,.22,1);
   --icon-font: 'Font Awesome 5 Brands';
 }
@@ -129,7 +131,7 @@ blockquote::before {
   top: 0;
   bottom: 0;
   left: 0;
-  background: var(--theme);
+  background: var(--accent);
 }
 
 blockquote p {
@@ -202,7 +204,7 @@ b, strong, em {
 hr {
   border: none;
   padding: 0.5px;
-  background: var(--theme);
+  background: var(--accent);
   opacity: 0.25;
   margin: 2rem 0 0.75rem;
 }
@@ -219,21 +221,21 @@ table {
 }
 
 table:not(.ln-table) tr {
-  background-color: var(--accent);
+  background-color: var(--bg);
 }
 
 th {
   text-align: left;
-  color: var(--light);
+  color: var(--light-shade);
 }
 
 thead tr {
-  background: var(--theme) !important;
+  background: var(--accent) !important;
 }
 
 td, th {
   padding: 0.5rem 1rem;
-  border: 2px solid var(--bg);
+  border: 2px solid var(--light-shade);
 }
 
 aside h3 {
@@ -370,9 +372,9 @@ aside h3 {
   margin: 1rem 0 1.5rem;
   display: inline-block;
   padding: 7.5px 12.5px;
-  background-color: var(--theme);
+  background-color: var(--accent);
   box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.5);
-  color: var(--light);
+  color: var(--light-shade);
   text-align: center;
   cursor: pointer;
   border-radius: 0.25rem;
@@ -384,7 +386,7 @@ aside h3 {
 
 .point {
   margin-right: 15px;
-  color: var(--theme);
+  color: var(--accent);
 }
 
 @media screen and (min-width: 769px) {
@@ -430,7 +432,7 @@ aside h3 {
 .copy::before, .copy::after {
   content: "";
   position: absolute;
-  background: var(--theme);
+  background: var(--accent);
   color: var(--light);
   opacity: 0;
   transition: opacity 0.25s ease-in;
@@ -474,7 +476,7 @@ aside h3 {
 }
 
 .footer a {
-  color: var(--theme);
+  color: var(--text);
   opacity: 0.8;
   transition: opacity 0.3s ease-in-out;
 }
@@ -494,7 +496,7 @@ aside h3 {
 
 .color_choice {
   width: 3rem;
-  background-color: var(--theme);
+  background-color: var(--accent);
   border-radius: 1rem;
   height: 1.5rem;
   outline: none;
@@ -514,7 +516,7 @@ aside h3 {
   left: 0.075rem;
   width: 1.4rem;
   height: 1.4rem;
-  background: radial-gradient(var(--light), var(--gray));
+  background: var(--light);
   border-radius: 50%;
   z-index: 2;
   transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -549,7 +551,7 @@ aside h3 {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--accent);
+  background-color: var(--bg);
   box-shadow: 0 1.5rem 6rem rgba(0, 0, 0, 0.05);
   transition: height 0.4s cubic-bezier(0.52, 0.16, 0.24, 1);
   z-index: 1000;
@@ -602,7 +604,7 @@ aside h3 {
   overflow: hidden;
   transition: top 0.33s linear;
   margin-top: 40px;
-  background-color: var(--accent);
+  background-color: var(--bg);
   width: 17rem;
   padding: 100px 0;
   min-height: 100vh;
@@ -617,7 +619,7 @@ aside h3 {
 }
 
 .nav-body a:hover {
-  color: var(--theme);
+  color: var(--accent);
 }
 
 .nav-brand {
@@ -688,7 +690,7 @@ aside h3 {
 }
 
 .nav_social a:hover {
-  color: var(--theme);
+  color: var(--accent);
 }
 
 .post {
@@ -742,7 +744,7 @@ aside h3 {
 }
 
 .post_inner a {
-  color: var(--theme);
+  color: var(--accent);
   transition: all 0.3s;
 }
 
@@ -811,16 +813,16 @@ aside h3 {
   font-weight: 500;
   display: inline-grid;
   grid-template-columns: auto 1fr;
-  background-color: var(--light);
+  background-color: var(--bg);
   padding: 0;
   align-items: center;
   border-radius: 0.3rem;
-  color: var(--dark);
+  color: var(--dark-shade);
   text-transform: capitalize;
 }
 
 .post_meta a:hover {
-  color: var(--theme);
+  color: var(--accent);
   text-decoration: underline;
   opacity: 0.9;
 }
@@ -833,8 +835,8 @@ aside h3 {
 .post_tag {
   font-size: 0.75rem !important;
   font-weight: 500;
-  background: var(--theme);
-  color: var(--light);
+  background: var(--accent);
+  color: var(--bg);
   padding: 0.25rem 0.67rem !important;
   text-transform: uppercase;
   display: inline-flex;
@@ -846,10 +848,10 @@ aside h3 {
 }
 
 .post_time {
-  background: var(--theme);
+  background: var(--bg);
   display: inline-grid;
   padding: 0.2rem 0.75rem;
-  color: var(--light);
+  color: var(--bg);
 }
 
 .post_thumbnail {
@@ -862,7 +864,7 @@ aside h3 {
   display: grid;
   margin: 2.25rem auto 1rem;
   text-align: center;
-  color: var(--theme);
+  color: var(--accent);
   box-shadow: 0 1rem 3rem -1rem rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
 }
@@ -875,7 +877,7 @@ aside h3 {
 .post_nav::before {
   content: "";
   position: absolute;
-  background: var(--accent);
+  background: var(--bg);
   top: 0;
   left: 0;
   bottom: 0;
@@ -902,7 +904,8 @@ aside h3 {
   max-width: 840px !important;
   margin: 0 auto;
   padding: 20px;
-  background-color: var(--accent);
+  background: linear-gradient(var(--bg), var(--bg));
+  mix-blend-mode: multiply;
   justify-content: center;
 }
 
@@ -929,8 +932,8 @@ aside h3 {
   display: inline-flex;
   margin-left: 5px;
   margin-right: 5px;
-  background-color: var(--accent);
-  color: var(--light);
+  background-color: var(--dark-shade);
+  color: var(--bg);
   border-radius: 50%;
   background-size: 50%;
   background-position: center;
@@ -1133,7 +1136,8 @@ aside h3 {
 }
 
 .highlight pre {
-  background: var(--accent) !important;
+  background: linear-gradient(var(--bg), var(--bg));
+  mix-blend-mode: multiply;
   color: var(--text) !important;
   border-radius: 4px;
   max-width: 100%;
@@ -1152,8 +1156,8 @@ aside h3 {
   width: 2.5rem !important;
   padding-left: 0;
   padding-right: 0;
-  color: var(--light) !important;
-  background-color: var(--theme) !important;
+  color: var(--bg) !important;
+  background-color: var(--accent) !important;
   border-radius: 0.25rem 0 0 0.25rem;
 }
 
