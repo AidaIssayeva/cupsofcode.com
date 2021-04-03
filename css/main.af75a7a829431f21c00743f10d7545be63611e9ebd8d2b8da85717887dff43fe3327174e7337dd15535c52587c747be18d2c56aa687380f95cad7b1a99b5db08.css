@@ -210,6 +210,7 @@ hr {
 }
 
 table {
+  padding: 0.33rem 0;
   width: 100%;
   max-width: 100%;
   overflow-x: scroll;
@@ -699,15 +700,13 @@ aside h3 {
 }
 
 .post p, .post h1, .post h2, .post h3, .post h4, .post h5, .post h6, .post blockquote, .post ol, .post ul, .post hr {
-  max-width: 840px !important;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media screen and (min-width: 1025px) {
+@media screen {
   .post img:not(.icon) {
     width: 100vw;
-    max-width: 1024px;
   }
 }
 
@@ -755,7 +754,6 @@ aside h3 {
 
 .post_inner img:not(.icon) {
   margin-bottom: 2rem;
-  box-shadow: 0 1.5rem 1rem -1rem rgba(0, 0, 0, 0.25);
 }
 
 .post_inner img:not(.icon) ~ h1, .post_inner img:not(.icon) ~ h2, .post_inner img:not(.icon) ~ h3, .post_inner img:not(.icon) ~ h4 {
@@ -845,6 +843,7 @@ aside h3 {
 
 .post_title {
   margin: 5px 0;
+  text-align: center;
 }
 
 .post_time {
@@ -901,7 +900,6 @@ aside h3 {
 }
 
 .post_buycoffee {
-  max-width: 840px !important;
   margin: 0 auto;
   padding: 20px;
   background: linear-gradient(var(--bg), var(--bg));
