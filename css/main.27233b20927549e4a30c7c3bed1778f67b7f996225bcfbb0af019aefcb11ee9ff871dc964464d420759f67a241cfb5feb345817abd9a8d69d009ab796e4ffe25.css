@@ -843,7 +843,7 @@ aside h3 {
 
 .post_title {
   margin: 5px 0;
-  text-align: center;
+  text-align: c;
 }
 
 .post_time {
@@ -863,6 +863,7 @@ aside h3 {
   display: grid;
   margin: 2.25rem auto 1rem;
   text-align: center;
+  vertical-align: middle;
   color: var(--accent);
   box-shadow: 0 1rem 3rem -1rem rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
