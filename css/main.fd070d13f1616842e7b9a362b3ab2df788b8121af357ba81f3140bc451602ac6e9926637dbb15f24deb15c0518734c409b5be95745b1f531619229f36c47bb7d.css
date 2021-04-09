@@ -548,6 +548,49 @@ aside h3 {
   color: var(--theme);
 }
 
+.list-taxonomy {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: var(--bg);
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+  min-width: 200px;
+  overflow: hidden;
+  height: fit-content;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 0.5rem;
+  margin: 20px;
+  flex: 1;
+}
+
+.card:hover {
+  color: var(--accent);
+}
+
+.card-content {
+  text-align: center;
+  padding: 10px;
+  display: block;
+  min-height: 70px;
+}
+
+.card-image {
+  min-height: 200px;
+  object-fit: contain;
+}
+
+@media (max-width: 800px) {
+  .list-taxonomy {
+    flex-direction: column;
+  }
+}
+
 .nav {
   position: fixed;
   top: 0;
