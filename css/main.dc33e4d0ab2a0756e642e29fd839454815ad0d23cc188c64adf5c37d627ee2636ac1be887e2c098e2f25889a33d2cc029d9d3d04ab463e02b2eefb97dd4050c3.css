@@ -1195,6 +1195,7 @@ aside h3 {
 }
 
 .highlight .lntd:first-child, .highlight .lntd:first-child pre {
+  width: 0rem !important;
   padding-left: 0;
   padding-right: 0;
   color: var(--text) !important;
