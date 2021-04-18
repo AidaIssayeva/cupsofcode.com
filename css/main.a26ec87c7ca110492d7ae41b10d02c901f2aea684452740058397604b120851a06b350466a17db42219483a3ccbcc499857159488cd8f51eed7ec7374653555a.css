@@ -1178,9 +1178,15 @@ aside h3 {
 }
 
 .highlight pre {
+  background: linear-gradient(var(--bg), var(--bg));
+  mix-blend-mode: multiply;
   color: var(--text) !important;
   border-radius: 4px;
   max-width: 100%;
+}
+
+.highlight table {
+  display: grid;
 }
 
 .highlight .lntd {
