@@ -1195,7 +1195,7 @@ aside h3 {
 }
 
 .highlight .lntd:first-child, .highlight .lntd:first-child pre {
-  width: 0rem !important;
+  width: 2.5rem !important;
   padding-left: 0;
   padding-right: 0;
   color: var(--text) !important;
@@ -1217,7 +1217,6 @@ aside h3 {
 .hl {
   display: block;
   width: 100%;
-  background-color: #ffffcc;
 }
 
 .ln {
