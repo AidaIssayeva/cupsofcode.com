@@ -1183,10 +1183,6 @@ aside h3 {
   max-width: 100%;
 }
 
-.highlight table {
-  display: grid;
-}
-
 .highlight .lntd {
   width: 100%;
   border: none;
