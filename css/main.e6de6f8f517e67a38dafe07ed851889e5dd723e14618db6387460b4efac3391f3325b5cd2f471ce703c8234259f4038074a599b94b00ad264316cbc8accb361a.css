@@ -1199,7 +1199,6 @@ aside h3 {
   padding-left: 0;
   padding-right: 0;
   color: var(--bg) !important;
-  background-color: var(--accent) !important;
   border-radius: 0.25rem 0 0 0.25rem;
 }
 
