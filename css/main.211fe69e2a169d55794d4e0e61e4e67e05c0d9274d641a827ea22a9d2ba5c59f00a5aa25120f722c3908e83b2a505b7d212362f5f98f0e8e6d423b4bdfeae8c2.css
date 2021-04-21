@@ -945,6 +945,7 @@ aside h3 {
 
 .post_buycoffee {
   margin: 0 auto;
+  margin-bottom: 20px;
   padding: 20px;
   background: linear-gradient(var(--bg), var(--bg));
   mix-blend-mode: multiply;
