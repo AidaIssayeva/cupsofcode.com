@@ -582,7 +582,7 @@ aside h3 {
 
 .card-image {
   min-height: 200px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 @media (max-width: 800px) {
