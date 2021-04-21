@@ -950,6 +950,7 @@ aside h3 {
   background: linear-gradient(var(--bg), var(--bg));
   mix-blend-mode: multiply;
   justify-content: center;
+  position: relative;
 }
 
 .post_buycoffee p {
