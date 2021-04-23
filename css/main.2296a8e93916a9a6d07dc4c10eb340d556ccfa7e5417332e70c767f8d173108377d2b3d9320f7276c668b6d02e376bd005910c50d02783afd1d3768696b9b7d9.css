@@ -594,6 +594,7 @@ aside h3 {
 .nav {
   position: fixed;
   top: 0;
+  height: 80px;
   width: 100%;
   background-color: var(--bg);
   box-shadow: 0 1.5rem 6rem rgba(0, 0, 0, 0.05);
@@ -671,6 +672,16 @@ aside h3 {
   font-size: 2rem !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  float: left;
+  display: block;
+  clear: both;
+}
+
+.nav-brand img {
+  width: auto;
+  max-width: auto;
+  max-height: 100%;
+  object-fit: fill;
 }
 
 .nav-drop {
