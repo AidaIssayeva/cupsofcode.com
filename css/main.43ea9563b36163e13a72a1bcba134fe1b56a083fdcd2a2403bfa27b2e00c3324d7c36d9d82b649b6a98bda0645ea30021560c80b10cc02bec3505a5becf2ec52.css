@@ -1200,6 +1200,7 @@ aside h3 {
 
 .highlight table {
   display: grid;
+  box-shadow: none;
 }
 
 .highlight .lntd {
