@@ -45,10 +45,15 @@
   --color-mode: 'lit';
   --light-shade: #f5f5f5;
   --light-accent: #04A763;
-  --main: #9d7463;
-  --dark-accent:#d37556;
+  --main: #B2713B;
+  --dark-accent:#284924;
   --dark-shade: #565C5E;
   --text-dark: #000;
+  --error: #f44336;
+  --warning: #e88c12;
+  --sucess: #6b9c4a;
+  --signature:#cc7832;
+  --fun-name:#ffc66d;
   --accent: var(--light-accent);
   --bg: var(--light-shade);
   --text: var(--text-dark);
@@ -1192,9 +1197,9 @@ aside h3 {
 }
 
 .highlight pre {
-  background: linear-gradient(var(--bg), var(--bg));
+  background: var(--dark-shade);
   mix-blend-mode: multiply;
-  color: var(--text) !important;
+  color: var(--light-shade) !important;
   border-radius: 4px;
   max-width: 100%;
 }
@@ -1225,8 +1230,7 @@ aside h3 {
 }
 
 .err {
-  color: #a61717;
-  background-color: #e3d2d2;
+  color: var(--light-shade);
 }
 
 .hl {
@@ -1241,7 +1245,7 @@ aside h3 {
 }
 
 .k, .kc, .kd, .kn, .kp, .kr, .kt, .nt {
-  color: #6ab825;
+  color: var(--signature);
   font-weight: 500;
 }
 
@@ -1254,7 +1258,7 @@ aside h3 {
 }
 
 .nc, .nf, .nn {
-  color: #447fcf;
+  color: var(--fun-name);
 }
 
 .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss {
@@ -1262,7 +1266,7 @@ aside h3 {
 }
 
 .m, .mb, .mf, .mh, .mi, .il, .mo {
-  color: #3677a9;
+  color: #6897bb;
 }
 
 .ow {
@@ -1276,18 +1280,18 @@ aside h3 {
 }
 
 .cs {
-  color: #e50808;
+  color: var(--error);
   background-color: #520000;
   font-weight: 500;
 }
 
 .cp, .cpf {
-  color: #cd2828;
+  color: var(--error);
   font-weight: 500;
 }
 
 .gd, .gr {
-  color: #d22323;
+  color: var(--error);
 }
 
 .ge {
@@ -1316,7 +1320,7 @@ aside h3 {
 }
 
 .gt {
-  color: #d22323;
+  color: var(--error);
 }
 
 .w {
