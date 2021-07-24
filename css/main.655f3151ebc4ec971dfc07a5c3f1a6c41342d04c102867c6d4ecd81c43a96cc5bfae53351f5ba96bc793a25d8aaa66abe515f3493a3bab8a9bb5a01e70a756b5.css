@@ -1271,6 +1271,9 @@ aside h3 {
   .button-container a {
     font-size: 16px;
   }
+  .social-media-container {
+    gap: 5px;
+  }
 }
 
 .highlight {
