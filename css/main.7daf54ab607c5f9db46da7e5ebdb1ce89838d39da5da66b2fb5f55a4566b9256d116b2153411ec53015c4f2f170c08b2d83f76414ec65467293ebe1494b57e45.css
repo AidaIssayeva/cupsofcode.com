@@ -1256,6 +1256,8 @@ aside h3 {
   .button-container {
     top: 50%;
     bottom: 0;
+    left: 5%;
+    right: 5%;
   }
   .social-button {
     font-size: 18px;
