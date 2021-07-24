@@ -1187,14 +1187,14 @@ aside h3 {
 
 .social-link {
   position: relative;
-  min-height: 700px;
   height: 1500px;
   width: 100%;
   background: url(http://localhost:1313/images/social_background.jpg);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: unset;
+  border-style: solid;
 }
 
 .button-container {
@@ -1263,10 +1263,11 @@ aside h3 {
 
 @media only screen and (max-width: 600px) {
   .social-link {
-    height: 800px;
+    height: 600px;
   }
   .button-container {
-    top: 45%;
+    top: 40%;
+    padding: 25px;
   }
   .social-button {
     padding: 15px;
