@@ -179,7 +179,7 @@
     link = createEl('a');
     icon = createEl('img');
     icon.className = 'icon';
-    icon.src = 'http://cupsofcode.com/images/icons/link.svg';
+    icon.src = 'https://cupsofcode.com/images/icons/link.svg';
     link.className = 'link';
     link.appendChild(icon);
     id = node.getAttribute('id');
