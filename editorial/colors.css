@@ -1,0 +1,19 @@
+/* Shared palette for the editorial site and the standalone audit page. */
+:root {
+  --paper: #f7f5f0;
+  --ink: #242824;
+  --muted: #686b63;
+  --copper: #8a452e;
+  --copper-hover: #713720;
+  --caramel: #d9a777;
+  --caramel-hover: #e8c39e;
+  --line: #dedad2;
+  --white: #fffdfa;
+  --tint: #eeebe3;
+  --surface: #e9e5dc;
+  --dark-surface: #30372c;
+  --dark-line: #596653;
+  --on-dark-muted: #c6c9c0;
+  --soft-accent: #e5cbb8;
+  --error: #a12626;
+}
