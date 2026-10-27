@@ -1,4 +1,8 @@
 (() => {
+  document.querySelectorAll('#site-nav a.nav-audit').forEach(link => {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
   const copyFeed = document.querySelector('[data-copy-feed]');
   if (copyFeed) copyFeed.addEventListener('click', async () => {
     const address = document.getElementById('rss-url');
