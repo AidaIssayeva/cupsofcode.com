@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 48" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="title">
   <title id="title">Cups of Code</title>
-  <rect width="48" height="48" rx="10" fill="#f7f5f0"/>
-  <path d="M15 8.5 4.5 24 15 39.5" fill="none" stroke="#8a452e" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M33 8.5 43.5 24 33 39.5" fill="none" stroke="#242824" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <g stroke="#8a452e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16.5 20.5h15v8c0 5.2-3 8.5-7.5 8.5s-7.5-3.3-7.5-8.5Z" fill="#fffdfa"/>
-    <ellipse cx="24" cy="20.5" rx="7.5" ry="3.1" fill="#fffdfa"/>
-    <ellipse cx="24" cy="21" rx="6.2" ry="2" fill="#242824" stroke="none"/>
-    <path d="M31.5 24h1.7a4.2 4.2 0 0 1 0 8.4h-2.6" fill="none"/>
-    <path d="M14.5 38.5c2.3 3.2 16.7 3.2 19 0" fill="none"/>
+  <rect width="72" height="48" rx="9" fill="#f7f5f0"/>
+  <path d="M21 8.5 5.5 24 21 39.5" fill="none" stroke="#8a452e" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51 8.5 66.5 24 51 39.5" fill="none" stroke="#242824" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g stroke="#8a452e" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 21.5h18v7.5c0 5.4-3.6 9-9 9s-9-3.6-9-9Z" fill="#fffdfa"/>
+    <ellipse cx="36" cy="21.5" rx="9" ry="3.4" fill="#fffdfa"/>
+    <ellipse cx="36" cy="22" rx="7.4" ry="2.1" fill="#242824" stroke="none"/>
+    <path d="M45 24.5h2a4.1 4.1 0 0 1 0 8.2h-3" fill="none"/>
+    <path d="M24.5 39.8c2.8 3.5 20.2 3.5 23 0" fill="none"/>
   </g>
 </svg>
