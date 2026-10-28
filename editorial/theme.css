@@ -50,6 +50,8 @@ body>header:not(.site-header)>nav{margin-left:auto}
 :root[data-theme="dark"] .prose pre{background:#171b18;border-color:var(--line)}
 :root[data-theme="dark"] ::selection{background:var(--soft-accent);color:var(--ink)}
 
+@media(max-width:480px){.site-header .wordmark{gap:8px}.site-header .wordmark:before{width:32px;height:24px}.site-header .wordmark>span{font-size:18px}.site-header .wordmark small{font-size:6px;letter-spacing:1px}.site-header .menu-toggle{gap:5px;padding-left:0}}
+
 @media(prefers-color-scheme:dark){
 :root:not([data-theme]) {
   color-scheme: dark;
@@ -91,5 +93,7 @@ body>header:not(.site-header)>nav{margin-left:auto}
 :root:not([data-theme]) .skip-link{background:var(--tint);color:var(--ink)}
 :root:not([data-theme]) .prose pre{background:#171b18;border-color:var(--line)}
 :root:not([data-theme]) ::selection{background:var(--soft-accent);color:var(--ink)}
+
+@media(max-width:480px){.site-header .wordmark{gap:8px}.site-header .wordmark:before{width:32px;height:24px}.site-header .wordmark>span{font-size:18px}.site-header .wordmark small{font-size:6px;letter-spacing:1px}.site-header .menu-toggle{gap:5px;padding-left:0}}
 
 }
